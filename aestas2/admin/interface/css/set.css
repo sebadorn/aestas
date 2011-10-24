@@ -1,0 +1,85 @@
+
+/*-------------*/
+/*     set     */
+/*-------------*/
+
+
+	#set legend {
+		display: block;
+		float: left;
+		font-weight: bold;
+		position: absolute;
+		width: 200px;
+	}
+
+	#set fieldset {
+		margin: 30px 0;
+	}
+
+		#set fieldset p {
+			color: #606060;
+			margin-top: 16px;
+		}
+
+		#set fieldset div {
+			margin-left: 200px;
+		}
+
+			#set fieldset fieldset {
+				background-color: #ffffff;
+				margin: 10px 60px 0 0;
+				padding: 10px;
+			}
+
+			#set fieldset li {
+				margin-bottom: 4px;
+			}
+
+
+		#set fieldset input[type="text"] {
+			width: 320px;
+		}
+
+
+		input.short,
+		input.shorter {
+			text-align: center;
+			width: 27px !important;
+		}
+
+		input.shorter {
+			width: 19px !important;
+		}
+
+		#set #password div input {
+			margin-bottom: 6px;
+		}
+
+			#set span code,
+			#set .permalinks code {
+				background-color: #ffffff;
+				padding: 2px 4px;
+			}
+
+			#set code span {
+				color: #a0a0a0;
+			}
+
+		#set .permalinks li {
+			margin-bottom: 16px;
+		}
+
+		#set .permalinks li:last-child {
+			margin-bottom: 4px;
+		}
+
+
+/*---------------*/
+/*     Rules     */
+/*---------------*/
+
+.rule_add {
+	position: absolute;
+	top: 80px;
+	width: 100%;
+}

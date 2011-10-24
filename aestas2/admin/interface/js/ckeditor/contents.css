@@ -1,0 +1,10 @@
+body {
+	background-color: #ffffff;
+	color: #202020;
+	font-family: Georgia, serif;
+	font-size: 16px;
+	line-height: 140%;
+}
+ol,ul,dl {
+    padding-right: 40px;
+}

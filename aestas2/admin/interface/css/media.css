@@ -1,0 +1,211 @@
+
+/*---------------*/
+/*     media     */
+/*---------------*/
+
+#files {
+	margin: 32px 0 0 0;
+}
+
+	#files .file {
+		border-top: 1px solid #e0e0e0;
+		clear: both;
+		padding: 20px 0;
+		position: relative;
+	}
+
+		#files input[type="checkbox"] {
+			margin-right: 12px;
+		}
+
+	/* Seperation by upload date */
+
+	.uploadday {
+		color: #e0e0e0;
+		font-size: 260%;
+		font-weight: bold;
+		letter-spacing: -4px;
+		margin: 30px 0 14px;
+		text-transform: uppercase;
+	}
+
+
+
+	/***   Listed files   ***/
+	/* Also see manage.css */
+
+	.uploadday + .file {
+		border-top: 0 !important;
+	}
+
+	.file .box {
+		color: #202020;
+		display: inline-block;
+		margin: 0 16px 8px 0;
+		padding-left: 10px;
+		vertical-align: top;
+	}
+
+		.file .box img {
+			-moz-box-shadow: 2px 2px 14px 0 #a0a0a0;
+			-webkit-box-shadow: 2px 2px 14px 0 #a0a0a0;
+			box-shadow: 2px 2px 14px 0 #a0a0a0;
+			vertical-align: top;
+			width: 80px;
+		}
+
+		.file .box .filetype {
+			display: inline-block;
+			height: 80px;
+			vertical-align: top;
+			width: 80px;
+		}
+
+		.filetype.application {
+			background: url("../img/application.png") 0 0 no-repeat;
+		}
+
+		.filetype.audio {
+			background: url("../img/audio.png") 0 0 no-repeat;
+		}
+
+		.filetype.image {
+			background: url("../img/image.png") 0 0 no-repeat;
+		}
+
+		.filetype.text {
+			background: url("../img/text-plain.png") 0 0 no-repeat;
+		}
+
+		.filetype.video {
+			background: url("../img/video.png") 0 0 no-repeat;
+		}
+
+		.filetype.notfound {
+			background: url("../img/notfound.png") 0 0 no-repeat;
+			cursor: help;
+			opacity: 0.8;
+		}
+
+		.file .maininfo {
+			display: inline-block;
+			vertical-align: top;
+			word-wrap: break-word;
+		}
+
+			.file .title {
+				display: block;
+				font-size: 160%;
+				margin-bottom: 8px;
+			}
+
+			.file div {
+				margin-bottom: 2px;
+			}
+
+	.file .actions_trigger {
+		left: 6px;
+		position: absolute;
+		top: 42px;
+	}
+
+
+
+/***   File Info   ***/
+
+.upload .warning {
+	margin: 0 14px 20px 0 !important;
+	top: 0;
+	width: auto;
+}
+
+
+.media #precontent p {
+	display: inline-block;
+	margin-top: 4px;
+}
+
+.media #precontent .usedin {
+	margin-top: 4px;
+}
+
+.media #precontent ul {
+	display: inline-block;
+	margin-top: 4px;
+	vertical-align: top;
+}
+
+.media #precontent .previewimg {
+	border: 0;
+	float: right;
+	margin: 1px;
+}
+
+
+
+/***   File Upload   ***/
+
+.upload form {
+	position: relative;
+}
+
+#media fieldset.step {
+	margin-right: 304px;
+	overflow: hidden;
+}
+
+
+/* Submit Panel */
+
+#media .next {
+	right: 0;
+	position: absolute;
+	top: 0;
+	width: 280px;
+}
+
+
+/* Info Panel after the Submit Panel */
+
+fieldset.info {
+	right: 0;
+	top: 86px;
+	position: absolute;
+	width: 280px;
+}
+
+
+	/* <legend> */
+
+	#media legend {
+		background-color: #e4e4e4;
+		border: 1px solid #e0e0e0;
+		border-bottom: 0;
+		color: #303030;
+		font-weight: bold;
+		padding: 4px 10px 3px;
+		text-shadow: #ffffff 0 1px 0;
+	}
+
+
+	/* Content of fieldset */
+
+	#media fieldset div,
+	#media fieldset ul {
+		background-color: #ffffff;
+		border: 1px solid #e0e0e0;
+		padding: 10px;
+	}
+
+		#media fieldset.step input[type="file"] {
+			border: 1px solid #d0d0d0;
+			clear: right;
+			margin: 6px 0;
+			padding: 4px 6px;
+			width: 96%;
+		}
+
+		#media div .add {
+			float: right;
+			margin: 0 0 4px 0;
+		}
