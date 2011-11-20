@@ -8,7 +8,7 @@ ae_Permissions::CheckInScript( 'set', 'rules' );
 
 // Scenario 1: Delete expired IPs
 if( isset( $_POST['del_expired'] ) ) {
-	Rules::DeleteExpiredIps();
+	ae_Rules::DeleteExpiredIps();
 	mysql_close( $db_connect );
 	header( 'Location: ../junction.php?area=set&show=rules' );
 	exit;

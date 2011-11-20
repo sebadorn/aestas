@@ -11,6 +11,8 @@ define( 'URL_EXTENDED',	PROTOCOL . ae_URL::Complete()	);
 
 ae_Permissions::InitRoleAndStatus();
 
+$refuse = false; // Set to 'true' if a rule for deletion matches.
+
 
 /* Are comments even enabled in general? */
 
@@ -115,8 +117,15 @@ foreach( $rule_actions as $rule ) {
 	$rule_result = $rule_parts[2];
 
 	if( $rule_change == 'status' ) {
-		$comment->setStatus( $rule_result );
 		$status_changed_by_rule = true;
+
+		if( $rule_result == 'delete' ) {
+			$refuse = true;
+			$comment->setStatus( 'trash' );
+		}
+		else {
+			$comment->setStatus( $rule_result );
+		}
 	}
 	else if( $rule_change == 'user' ) {
 		$comment->setUserId( $rule_result );
@@ -127,7 +136,7 @@ foreach( $rule_actions as $rule ) {
 
 // Has the honeypot been touched?
 
-if( !$status_changed_by_rule && isset( $_POST['honey-comment'] ) ) { // Is there a honeypot?
+if( !$refuse && !$status_changed_by_rule && isset( $_POST['honey-comment'] ) ) { // Is there a honeypot?
 	$_POST['honey-comment'] = trim( $_POST['honey-comment'] );
 	$_POST['honey-author'] = trim( $_POST['honey-author'] );
 	$_POST['honey-email'] = trim( $_POST['honey-url'] );
@@ -149,14 +158,16 @@ if( !$status_changed_by_rule && isset( $_POST['honey-comment'] ) ) { // Is there
 	}
 }
 
-$comment->save_new();
+if( !$refuse ) {
+	$comment->save_new();
+}
 
 
 // Last comment ID
 
 $jump = '';
 
-if( $status == 'approved' ) {
+if( $comment->getStatus() == 'approved' ) {
 	$jump = '#comment-' . $comment->getId();
 }
 

@@ -102,11 +102,12 @@ class ae_ContentOfRules {
 
 	public static function OptionsForRuleResults() {
 		$out = '';
-		$statuses = array( 'approved', 'unapproved', 'spam' );
+		$statuses = array( 'approved', 'unapproved', 'spam', 'trash', 'delete' );
 
 		$out .= "\t" . '<optgroup label="comment status">' . PHP_EOL;
 		foreach( $statuses as $status ) {
-			$out .= "\t\t" . '<option value="comment;status;' . $status . '">' . $status . '</option>' . PHP_EOL;
+			$out .= "\t\t" . '<option value="comment;status;' . $status . '">';
+			$out .= $status . '</option>' . PHP_EOL;
 		}
 		$out .= "\t" . '</optgroup>' . PHP_EOL;
 
@@ -124,8 +125,8 @@ class ae_ContentOfRules {
 
 		$out .= "\t" . '<optgroup label="comment of user">' . PHP_EOL;
 		while( $user = mysql_fetch_assoc( $user_query ) ) {
-			$out .= "\t\t" . '<option value="comment;user;' . $user['user_id'] . '">'
-					. $user['user_name'] . ' (ID: ' . $user['user_id'] . ')</option>' . PHP_EOL;
+			$out .= "\t\t" . '<option value="comment;user;' . $user['user_id'] . '">';
+			$out .= $user['user_name'] . ' (ID: ' . $user['user_id'] . ')</option>' . PHP_EOL;
 		}
 		$out .= "\t" . '</optgroup>' . PHP_EOL;
 

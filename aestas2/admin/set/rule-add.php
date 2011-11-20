@@ -28,12 +28,7 @@ $rule->setRuleResult( $_POST['rule-result'] );
 
 $rule->setStatus( 'active' );
 
-if( $rule->save_new() ) {
-	$outcome = 'success';
-}
-else {
-	$outcome = 'error';
-}
+$outcome = $rule->save_new() ? 'success' : 'error';
 
 
 mysql_close( $db_connect );

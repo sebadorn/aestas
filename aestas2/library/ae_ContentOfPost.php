@@ -68,7 +68,7 @@ class ae_ContentOfPost {
 		$out = '';
 
 		if( $mpq->comments_number() > 0 ) {
-			$out .= '<a href="?area=manage&amp;show=comments&amp;to_' . self::$type . '=' . $mpq->the_ID() . '"'
+			$out .= '<a href="?area=manage&amp;show=comments&amp;to_' . self::$type . '=' . $mpq->the_ID() . '" '
 					. 'title="' . $mpq->comments_number() . ' comment(s)">'
 					. $mpq->comments_number() . '</a>';
 		}

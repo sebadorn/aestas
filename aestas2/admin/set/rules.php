@@ -108,6 +108,7 @@ $rules_count = ae_ManageRules::CountRulesByStatus( $filter['status'] );
 			<thead>
 				<tr>
 					<th></th>
+					<th></th>
 					<th>concern</th>
 					<th>precision</th>
 					<th>match</th>
@@ -123,12 +124,16 @@ $rules_count = ae_ManageRules::CountRulesByStatus( $filter['status'] );
 						<input id="rule-<?php echo $rules->id() ?>" name="id[]" type="checkbox" value="<?php echo $rules->id() ?>" />
 					</td>
 
+					<td class="action_cell">
+						<div class="actions_trigger">
+							<div class="actions">
+								<?php echo ae_ContentOfRules::Actions( $rules ) ?>
+							</div>
+						</div>
+					</td>
+
 					<td class="rule-concern">
 						<?php echo $rules->rule_concern() ?>
-						<div class="actions">
-							<?php echo ae_ContentOfRules::Actions( $rules ) ?>
-							<span class="arrow"></span>
-						</div>
 					</td>
 
 					<td class="rule-precision">

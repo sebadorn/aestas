@@ -95,13 +95,13 @@ else {
 					</td>
 
 					<td class="action_cell">
-						<span class="actions_trigger">
+						<div class="actions_trigger">
 							<?php if( ae_Permissions::hasPermissionToTakeActionsForPost( $mpq ) ) : ?>
 							<div class="actions">
 								<?php echo ae_ContentOfPost::Actions( $mpq ) ?>
 							</div>
 							<?php endif; ?>
-						</span>
+						</div>
 					</td>
 
 					<td class="count"><?php echo ae_ContentOfPost::Comments( $mpq ) ?></td>

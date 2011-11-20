@@ -1,9 +1,9 @@
 <ifmodule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /aestas2/aestas2/
+RewriteBase /aestas/aestas2/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /aestas2/aestas2/ [L]
+RewriteRule . /aestas/aestas2/ [L]
 </ifmodule>
 <ifmodule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
