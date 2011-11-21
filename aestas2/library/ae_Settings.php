@@ -6,6 +6,27 @@
 class ae_Settings {
 
 
+	/**
+	 * Table column prefixes of tables that are
+	 * likely to have a column for permalinks.
+	 */
+	public static $TABLE_COLUMN_PREFIXES = array(
+		'post', 'page', 'user', 'cat', 'comment', 'media', 'rule'
+	);
+
+	protected static $table2col = array(
+		'cat' => TABLE_CATEGORIES,
+		'comment' => TABLE_COMMENTS,
+		'media' => TABLE_MEDIA,
+		'post' => TABLE_POSTS,
+		'roll' => TABLE_LINKROLL,
+		'rule' => TABLE_RULES,
+		'set' => TABLE_SETTINGS,
+		'stat' => TABLE_STATS,
+		'trackback' => TABLE_TRACKS_SEND,
+		'user' => TABLE_USERS
+	);
+
 	protected static $settings = array();
 	protected static $preloaded = false;
 	protected static $use_cache = true;
@@ -250,6 +271,14 @@ class ae_Settings {
 	 */
 	public static function UseCache( $value ) {
 		self::$use_cache = $value;
+	}
+
+
+	public static function getTableToColumnPrefix( $col ) {
+		if( isset( self::$table2col[$col] ) ) {
+			return self::$table2col[$col];
+		}
+		return false;
 	}
 
 

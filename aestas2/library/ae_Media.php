@@ -1,8 +1,14 @@
 <?php
 
-
 class ae_Media {
 
+
+	// Class attributes
+	public static $STATUSES = array( 'available', 'trash' );
+	public static $TYPES = array( 'image', 'audio', 'video', 'application', 'text' );
+
+
+	// Object attributes
 	protected $id;
 	protected $name = '';
 	protected $date;
@@ -398,7 +404,8 @@ class ae_Media {
 		if( !$this->file_exists_inmedia() ) {
 			return 'error on getting image dimensions: file not found';
 		}
-		return str_replace( 'x', '&nbsp;×&nbsp;', $this->dimensions ) . '&nbsp;pixels'; // TODO: doubled code, @see ae_MediaFileQuery::image_dimensions().
+		// TODO: doubled code, @see ae_MediaFileQuery::image_dimensions().
+		return str_replace( 'x', '&nbsp;×&nbsp;', $this->dimensions ) . '&nbsp;pixels';
 	}
 
 

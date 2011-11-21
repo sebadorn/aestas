@@ -9,7 +9,7 @@ class ae_Validate {
 
 
 	public static function isAuthSystem( $value ) {
-		return in_array( $value, ae_GlobalVars::getAuthSystems() );
+		return in_array( $value, ae_Permissions::$AUTH_SYSTEMS );
 	}
 
 
@@ -31,53 +31,53 @@ class ae_Validate {
 
 
 	public static function isCommentStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getCommentStatuses() );
+		return in_array( $value, ae_Comment::$STATUSES );
 	}
 
 
 	public static function isPostStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getPostStatuses() );
+		return in_array( $value, ae_Post::$STATUSES );
 	}
 
 
 	public static function isMediaStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getMediaStatuses() );
+		return in_array( $value, ae_Media::$STATUSES );
 	}
 
 
 	public static function isMediaType( $value ) {
 		$value = explode( '/', $value );
-		return in_array( $value[0], ae_GlobalVars::getMediaTypes() );
+		return in_array( $value[0], ae_Media::$TYPES );
 	}
 
 
 	public static function isCategoryStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getCategoryStatuses() );
+		return in_array( $value, ae_Category::$STATUSES );
 	}
 
 
 	public static function isRuleStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getRuleStatuses() );
+		return in_array( $value, ae_Rule::$STATUSES );
 	}
 
 
 	public static function isRulePrecision( $value ) {
-		return in_array( $value, ae_GlobalVars::getRulePrecisions() );
+		return in_array( $value, ae_Rule::$PRECISIONS );
 	}
 
 
 	public static function isUserEditor( $value ) {
-		return in_array( $value, ae_GlobalVars::getUserEditors() );
+		return in_array( $value, ae_User::$EDITORS );
 	}
 
 
 	public static function isUserStatus( $value ) {
-		return in_array( $value, ae_GlobalVars::getUserStatuses() );
+		return in_array( $value, ae_User::$STATUSES );
 	}
 
 
 	public static function isUserRole( $value ) {
-		return in_array( $value, ae_GlobalVars::getUserRoles() );
+		return in_array( $value, ae_User::$ROLES );
 	}
 
 
@@ -158,17 +158,17 @@ class ae_Validate {
 
 
 	public static function isGravatarRating( $value ) {
-		return in_array( $value, ae_GlobalVars::getGravatarRatings() );
+		return in_array( $value, ae_Comment::$GRAVATAR_RATINGS );
 	}
 
 
 	public static function isNewsfeedDisplay( $value ) {
-		return in_array( $value, ae_GlobalVars::getNewsfeedDisplays() );
+		return in_array( $value, ae_Newsfeed::$DISPLAY_TYPES );
 	}
 
 
 	public static function isTableColumnPrefix( $value ) {
-		return in_array( $value, ae_GlobalVars::getTableColumnPrefixes() );
+		return in_array( $value, ae_Settings::$TABLE_COLUMN_PREFIXES );
 	}
 
 

@@ -83,12 +83,13 @@ $rules_count = ae_ManageRules::CountRulesByStatus( $filter['status'] );
 		<?php if( ROLE == 'admin' ) : ?>
 		<div class="bulk_apply">
 			<select name="bulk">
-				<option value="delete">Delete</option>
 				<?php if( $filter['status'] != 'active' ): ?>
 				<option value="active">Activate</option>
 				<?php endif; ?>
-				<?php if( $filter['status'] != 'inactive' ): ?>
-				<option value="inactive">Deactivate</option>
+				<?php if( $filter['status'] != 'trash' ): ?>
+				<option value="trash">Trash</option>
+				<?php else: ?>
+				<option value="trash">Delete</option>
 				<?php endif; ?>
 			</select>
 

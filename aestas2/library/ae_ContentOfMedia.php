@@ -7,10 +7,10 @@ class ae_ContentOfMedia {
 	public static function TypeFilterMediaNav() {
 		$filter = self::FilterForMedia();
 
-		$class = !in_array( $filter['type'], ae_GlobalVars::getMediaTypes() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['type'], ae_Media::$TYPES ) ? ' class="active"' : '';
 		$out = '<li' . $class . '><a href="?area=media">All</a></li>' . PHP_EOL;
 
-		foreach( ae_GlobalVars::getMediaTypes() as $s ) {
+		foreach( ae_Media::$TYPES as $s ) {
 			$class = ( $filter['type'] == $s ) ? ' class="active"' : '';
 
 			if( ae_MediaFileQuery::CountFilesByType( $s ) > 0 ) {

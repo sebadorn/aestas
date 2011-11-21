@@ -3,6 +3,12 @@
 
 class ae_Category {
 
+
+	// Class attributes
+	public static $STATUSES = array( 'active', 'trash' );
+
+
+	// Object attributes
 	protected $id;
 	protected $name = '';
 	protected $parent = 0;

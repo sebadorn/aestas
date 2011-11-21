@@ -106,11 +106,11 @@ else {
 
 					<div class="box check">
 						<input name="id[]" type="checkbox" value="<?php echo $media->file_ID() ?>" />
-						<span class="actions_trigger">
+						<div class="actions_trigger">
 							<div class="actions">
 								<?php echo ae_ContentOfMedia::MediaActions( $media ) ?>
 							</div>
-						</span>
+						</div>
 						<?php echo ae_ContentOfMedia::MediaPreviewImage( $media ); ?>
 					</div>
 

@@ -7,11 +7,10 @@ class ae_ContentOfRules {
 	public static function StatusFilterNav() {
 		$filter = self::FilterForRules();
 
-		$class = !in_array( $filter['status'], ae_GlobalVars::getRuleStatuses() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['status'], ae_Rule::$STATUSES ) ? ' class="active"' : '';
 		$out = '';
-		//$out = '<li' . $class . '><a href="?area=set&amp;show=rules">All</a></li>' . PHP_EOL;
 
-		foreach( ae_GlobalVars::getRuleStatuses() as $s ) {
+		foreach( ae_RULE::$STATUSES as $s ) {
 			$class = ( $filter['status'] == $s ) ? ' class="active"' : '';
 
 			if( ae_ManageRules::CountRulesByStatus( $s ) > 0 ) {
@@ -32,14 +31,15 @@ class ae_ContentOfRules {
 		$base = '<a href="set/apply-on-rules.php?';
 		$from = isset( $_GET['status'] ) ? '&amp;from=' . $rules->status() : '';
 		$ran = '&amp;ran=' . rand( 1, 400 );
+		$http_get = $rules->id() . $from . $ran;
 
-		if( $rules->status() == 'active' ) {
-			$out .= $base . 'inactive=' . $rules->id() . $from . $ran . '">Deactivate</a>' . PHP_EOL;
+		if( $rules->status() == 'trash' ) {
+			$out .= $base . 'active=' . $http_get . '">Activate</a>' . PHP_EOL;
+			$out .= $base . 'trash=' . $http_get . '">Delete</a>' . PHP_EOL;
 		}
 		else {
-			$out .= $base . 'active=' . $rules->id() . $from . $ran . '">Activate</a>' . PHP_EOL;
+			$out .= $base . 'trash=' . $http_get . '">Trash</a>' . PHP_EOL;
 		}
-		$out .= $base . 'delete=' . $rules->id() . $from . $ran . '">Delete</a>' . PHP_EOL;
 
 		return $out;
 	}

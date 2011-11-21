@@ -74,11 +74,11 @@ else {
 						<input type="checkbox" name="id[]" value="<?php echo $mcq->comment_ID(); ?>" />
 
 						<?php if( ae_Permissions::hasPermissionToTakeActionsForComment( $mcq ) ) : ?>
-						<span class="actions_trigger">
+						<div class="actions_trigger">
 							<div class="actions">
 								<?php echo ae_ContentOfComment::CommentActions( $mcq ) ?>
 							</div>
-						</span>
+						</div>
 						<?php endif; ?>
 
 						<ul class="tabs">

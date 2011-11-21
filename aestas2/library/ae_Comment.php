@@ -3,6 +3,19 @@
 
 class ae_Comment {
 
+
+	// Class attributes
+	public static $STATUSES = array( 'unapproved', 'approved', 'spam', 'trash' );
+	public static $DEFAULT_NAME = 'Anonymous';
+	public static $GRAVATAR_RATINGS = array( 'g', 'pg', 'r', 'x' );
+	public static $ALLOWED_TAGS = array(
+		'a', 'abbr', 'b', 'blockquote', 'cite',
+		'code', 'del', 'em', 'i', 'strong'
+	);
+	public static $ALLOWED_ATTRIBUTES = array( 'alt', 'cite', 'href', 'name', 'title' );
+
+
+	// Object attributes
 	protected $id;
 	protected $parent_id = 0;
 	protected $author = '';
@@ -144,7 +157,7 @@ class ae_Comment {
 
 		$problem_tags = array();
 
-		foreach( ae_GlobalVars::getCommentAllowedTags() as $tag ) {
+		foreach( ae_Comment::$ALLOWED_TAGS as $tag ) {
 			$hits_opened = preg_match_all( '#<' . $tag . '( [^>]*)?>#i', $this->content, $opened );
 			$hits_closed = preg_match_all( '#</' . $tag . '>#i', $this->content, $closed );
 
@@ -154,7 +167,7 @@ class ae_Comment {
 			}
 		}
 
-		$without_problem_tags = array_diff( ae_GlobalVars::getCommentAllowedTags(), $problem_tags );
+		$without_problem_tags = array_diff( ae_Comment::$ALLOWED_TAGS, $problem_tags );
 
 		/* Why not using strip_tags()?
 		 * The PHP function strip_tags() is a little overzealous and
@@ -190,8 +203,8 @@ class ae_Comment {
 
 		$this->content = str_replace( '&gt;', '>', $this->content );
 
-		$tags = ae_GlobalVars::getCommentNotStripTags( 'preg_replace' );
-		$attributes = ae_GlobalVars::getCommentAllowedAttributes( 'preg_replace' );
+		$tags = self::getAllowedTags( 'preg_replace' );
+		$attributes = self::getAllowedAttributes( 'preg_replace' );
 
 		$this->content = preg_replace(
 			'#&lt;(/?(?:' . $tags . ') *(?:(' . $attributes . ') *= *[^>]*)*)>#',
@@ -255,6 +268,32 @@ class ae_Comment {
 	}
 
 
+	/**
+	* Variants:
+	* strip_tags - &lt;a&gt;&lt;b&gt;
+	* preg_replace - a|b
+	*/
+	public static function getAllowedTags( $variant = null ) {
+		if( $variant == 'strip_tags' ) {
+			return '<' . implode( '><', self::$ALLOWED_TAGS ) . '>';
+		}
+		return implode( '|', self::$ALLOWED_TAGS );
+	}
+
+
+	/**
+	* Variants:
+	* preg_replace - a|b
+	* otherwise - as array
+	*/
+	public static function getAllowedAttributes( $variant = null ) {
+		if( $variant == 'preg_replace' ) {
+			return implode( '|', self::$ALLOWED_ATTRIBUTES );
+		}
+		return self::$ALLOWED_ATTRIBUTES;
+	}
+
+
 
 	//---------- Getter/Setter
 
@@ -266,7 +305,7 @@ class ae_Comment {
 	public function setAuthor( $author ) {
 		$author = trim( $author );
 		if( empty( $author ) ) {
-			$author = ae_GlobalVars::getCommentEmptyName();
+			$author = ae_Comment::$DEFAULT_NAME;
 		}
 		$this->author = htmlspecialchars( $author );
 	}

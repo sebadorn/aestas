@@ -11,12 +11,12 @@ class ae_ContentOfCategory {
 		$filter = self::FilterForCategories();
 
 		$class = '';
-		if( empty( $filter['status'] ) || !in_array( $filter['status'], ae_GlobalVars::getCategoryStatuses() ) ) {
+		if( empty( $filter['status'] ) || !in_array( $filter['status'], ae_Category::$STATUSES ) ) {
 			$class = ' class="active"';
 		}
 		$out = '<li' . $class . '><a href="?area=manage&amp;show=categories">All</a></li>' . PHP_EOL;
 
-		foreach( ae_GlobalVars::getCategoryStatuses() as $s ) {
+		foreach( ae_Category::$STATUSES as $s ) {
 			if( empty( $s ) || $s == 'NULL' ) {
 				continue;
 			}

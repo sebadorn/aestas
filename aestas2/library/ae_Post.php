@@ -3,6 +3,12 @@
 
 class ae_Post {
 
+
+	// Class attributes
+	public static $STATUSES = array( 'draft', 'published', 'expired', 'trash' );
+
+
+	// Object attributes
 	protected $id;
 	protected $author_id = 0;
 	protected $title = '';

@@ -133,9 +133,9 @@ class ae_ManageActions {
 			self::$status = 'active';
 			self::$id = $array['active'];
 		}
-		else if( isset( $array['inactive'] ) && ae_Validate::isDigit( $array['inactive'] ) ) {
-			self::$status = 'inactive';
-			self::$id = $array['inactive'];
+		else if( isset( $array['trash'] ) && ae_Validate::isDigit( $array['trash'] ) ) {
+			self::$status = 'trash';
+			self::$id = $array['trash'];
 		}
 		else if( isset( $array['delete'] ) && ae_Validate::isDigit( $array['delete'] ) ) {
 			self::$status = 'delete';

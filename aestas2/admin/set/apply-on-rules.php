@@ -6,18 +6,9 @@ ae_Permissions::InitRoleAndStatus();
 ae_Permissions::CheckInScript( 'set', 'rules' );
 
 
-// Scenario 1: Delete expired IPs
-if( isset( $_POST['del_expired'] ) ) {
-	ae_Rules::DeleteExpiredIps();
-	mysql_close( $db_connect );
-	header( 'Location: ../junction.php?area=set&show=rules' );
-	exit;
-}
-
-
 $queue = array();
 
-// Scenario 2: Bulk apply for many.
+// Scenario 1: Bulk apply for many.
 if( isset( $_POST['bulk'], $_POST['id'] ) ) {
 	$status = $_POST['bulk'];
 	$queue = $_POST['id'];
@@ -29,7 +20,7 @@ if( isset( $_POST['bulk'], $_POST['id'] ) ) {
 	}
 }
 
-// Scenario 3: Only a single one shall be changed.
+// Scenario 2: Only a single one shall be changed.
 else {
 	ae_ManageActions::InitStatusAndId( $_GET, 'rules' );
 	$queue[] = ae_ManageActions::getId();
@@ -49,7 +40,12 @@ if( empty( $queue ) ) {
 foreach( $queue as $id ) {
 	$element = ae_Rule::getRuleById( $id );
 	if( $status != null ) {
-		$element->update_status( $status );
+		if( $status == 'trash' && $element->getStatus() == 'trash' ) {
+			$element->delete();
+		}
+		else {
+			$element->update_status( $status );
+		}
 	}
 }
 

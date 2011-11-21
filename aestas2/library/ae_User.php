@@ -3,6 +3,16 @@
 
 class ae_User {
 
+
+	// Class attributes
+	public static $EDITORS = array( 'code', 'ckeditor' );
+	public static $ROLES = array( 'admin', 'author', 'guest' );
+	public static $STATUSES = array( 'active', 'suspended', 'trash', 'deleted' );
+
+	protected static $user_cache = array();
+
+
+	// Object attributes
 	protected $id = 0;
 	protected $name_external = '';
 	protected $name_internal = '';
@@ -13,8 +23,6 @@ class ae_User {
 	protected $permalink = '';
 	protected $status = 'suspended';
 	protected $password_md5 = '';
-
-	protected static $user_cache = array();
 
 
 	public function __construct( $ua = array() ) {

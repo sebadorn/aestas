@@ -89,13 +89,13 @@ else {
 					</td>
 
 					<td>
-						<span class="actions_trigger">
+						<div class="actions_trigger">
 							<?php if( ROLE == 'admin' || ROLE == 'author' ) : ?>
 							<div class="actions">
 								<?php echo ae_ContentOfCategory::CategoryActions( $mcaq ) ?>
 							</div>
 							<?php endif; ?>
-						</span>
+						</div>
 					</td>
 
 					<td class="count"><?php echo $mcaq->cat_count_posts() ?></td>

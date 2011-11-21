@@ -530,7 +530,7 @@ class ae_URL {
 		}
 
 		$type = mysql_real_escape_string( $type );
-		$table = ae_GlobalVars::getTableToColumnPrefix( $type );
+		$table = ae_Settings::getTableToColumnPrefix( $type );
 
 		$sql = '
 			SELECT COUNT( ' . $type . '_id ) AS count

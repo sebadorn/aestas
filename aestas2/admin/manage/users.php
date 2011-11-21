@@ -81,13 +81,13 @@ else {
 					</td>
 
 					<td>
-						<span class="actions_trigger">
+						<div class="actions_trigger">
 							<?php if( ROLE == 'admin' ) : ?>
 							<div class="actions">
 								<?php echo ae_ContentOfUser::UserActions( $muq ) ?>
 							</div>
 							<?php endif; ?>
-						</span>
+						</div>
 					</td>
 
 					<td class="role"><?php echo $muq->user_role() ?></td>

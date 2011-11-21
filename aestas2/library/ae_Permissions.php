@@ -5,6 +5,10 @@
  */
 class ae_Permissions {
 
+
+	public static $AUTH_SYSTEMS = array( 'session', 'cookie' );
+
+
 	protected static $ID = -1;
 	protected static $ROLE;
 	protected static $STATUS;

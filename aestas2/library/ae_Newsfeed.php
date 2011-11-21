@@ -3,6 +3,18 @@
 
 class ae_Newsfeed {
 
+
+	// Class attributes
+	public static $DISPLAY_TYPES = array( 'default', 'excerpt', 'full', 'shorten' );
+
+	protected static $xml_version = '1.0';
+	protected static $xml_encoding = 'utf-8';
+	protected static $rss_version = '2.0';
+
+	protected static $content_length_limit = 255;
+
+
+	// Object attributes
 	protected $title = '';
 	protected $description = '';
 	protected $link = array(
@@ -29,7 +41,8 @@ class ae_Newsfeed {
 	 * Generates the feed.
 	 */
 	public function generate() {
-		$out = '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
+		$out = '<?xml version="' . self::$xml_version . '" ';
+		$out .= 'encoding="' . self::$xml_encoding . '"?>' . PHP_EOL;
 		$out .= $this->generate_element_rss();
 		return $out;
 	}
@@ -72,7 +85,7 @@ class ae_Newsfeed {
 
 
 	protected function generate_element_rss() {
-		$rss = '<rss version="2.0"';
+		$rss = '<rss version="' . self::$rss_version . '"';
 		foreach( $this->rss_attr as $attr => $value ) {
 			$rss .= ' ' . $attr . '="' . htmlspecialchars( $value ) . '"';
 		}
@@ -162,8 +175,8 @@ class ae_Newsfeed {
 
 	protected function generate_item_description( $item ) {
 		$item['content'] = strip_tags( $item['content'] );
-		if( strlen( $item['content'] ) > 255 ) {
-			$item['content'] = substr( $item['content'], 0, 255 ) . '…';
+		if( strlen( $item['content'] ) > self::$content_length_limit ) {
+			$item['content'] = substr( $item['content'], 0, self::$content_length_limit ) . '…';
 		}
 
 		return self::EncodeForFeed( $item['content'] );

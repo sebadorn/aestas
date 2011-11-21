@@ -87,10 +87,10 @@ class ae_ContentOfComment {
 	public static function StatusFilterCommentNav() {
 		$filter = self::FilterForComments();
 
-		$class = !in_array( $filter['status'], ae_GlobalVars::getCommentStatuses() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['status'], ae_Comment::$STATUSES ) ? ' class="active"' : '';
 		$out = '<li' . $class . '><a href="?area=manage&amp;show=comments">All</a></li>' . PHP_EOL;
 
-		foreach( ae_GlobalVars::getCommentStatuses() as $s ) {
+		foreach( ae_Comment::$STATUSES as $s ) {
 			$class = ( $filter['status'] == $s ) ? ' class="active"' : '';
 
 			if( ae_ManageCommentByPostQuery::count_comments_bystatus( $s ) > 0 ) {

@@ -74,10 +74,10 @@ class ae_ContentOfUser {
 	public static function StatusFilterUserNav() {
 		$filter = self::FilterForUsers();
 
-		$class = !in_array( $filter['status'], ae_GlobalVars::getUserStatuses() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['status'], ae_User::$STATUSES ) ? ' class="active"' : '';
 		$out = '<li' . $class . '><a href="?area=manage&amp;show=users">All</a></li>' . "\n";
 
-		foreach( ae_GlobalVars::getUserStatuses() as $s ) {
+		foreach( ae_User::$STATUSES as $s ) {
 			$class = ( $filter['status'] == $s ) ? ' class="active"' : '';
 
 			if( ae_ManageUserQuery::count_users_bystatus( $s ) > 0 ) {
@@ -96,10 +96,10 @@ class ae_ContentOfUser {
 	public static function RoleFilterUserNav() {
 		$filter = self::FilterForUsers();
 
-		$class = !in_array( $filter['role'], ae_GlobalVars::getUserRoles() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['role'], ae_User::$ROLES ) ? ' class="active"' : '';
 		$out = '<li' . $class . '><a href="?area=manage&amp;show=users">All</a></li>' . "\n";
 
-		foreach( ae_GlobalVars::getUserRoles() as $s ) {
+		foreach( ae_User::$ROLES as $s ) {
 			$class = ( $filter['role'] == $s ) ? ' class="active"' : '';
 
 			if( ae_ManageUserQuery::count_users_byrole( $s ) > 0 ) {

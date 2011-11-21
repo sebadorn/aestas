@@ -3,6 +3,16 @@
 
 class ae_Rule {
 
+
+	// Class attributes
+	public static $STATUSES = array( 'active', 'trash' );
+	public static $PRECISIONS = array( 'contains', 'exact', 'regex' );
+
+	protected static $default_status = 'trash';
+	protected static $default_precision = 'exact';
+
+
+	// Object attributes
 	protected $id;
 	protected $concern;
 	protected $match;
@@ -29,10 +39,10 @@ class ae_Rule {
 			throw new Exception( 'Missing information' );
 		}
 		if( $this->precision == '' ) {
-			$this->precision = 'exact';
+			$this->precision = self::$default_precision;
 		}
 		if( $this->status == '' ) {
-			$this->status = 'inactive';
+			$this->status = self::$default_status;
 		}
 
 		return ae_Database::Query( '
@@ -80,11 +90,11 @@ class ae_Rule {
 	 * and, well, deletes the rule from the database.
 	 */
 	public function update_status( $status ) {
-		if( $status != 'delete' && !ae_Validate::isRuleStatus( $status ) ) {
+		if( !ae_Validate::isRuleStatus( $status ) ) {
 			throw new Exception( ae_ErrorMessages::Unknown( 'rule status', $status ) );
 		}
 
-		if( $status == 'delete' ) {
+		if( $status == 'trash' && $this->status == 'trash' ) {
 			$this->delete();
 		}
 		else {

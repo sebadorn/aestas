@@ -14,10 +14,10 @@ class ae_ContentOfPost {
 	public static function StatusFilterNav() {
 		$filter = self::Filter();
 
-		$class = !in_array( $filter['status'], ae_GlobalVars::getPostStatuses() ) ? ' class="active"' : '';
+		$class = !in_array( $filter['status'], ae_Post::$STATUSES ) ? ' class="active"' : '';
 		$out = '<li' . $class . '><a href="?area=manage&amp;show=' . self::$type . 's">All</a></li>' . PHP_EOL;
 
-		foreach( ae_GlobalVars::getPostStatuses() as $s ) {
+		foreach( ae_Post::$STATUSES as $s ) {
 			$class = ( $filter['status'] == $s ) ? ' class="active"' : '';
 
 			if( ae_ManagePostQuery::CountPostsByStatus( $s, self::$type ) > 0 ) {
