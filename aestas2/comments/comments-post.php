@@ -153,7 +153,7 @@ if( !$refuse && !$status_changed_by_rule && isset( $_POST['honey-comment'] ) ) {
 		$blackRule->setStatus( 'active' );
 		$blackRule->save_new();
 
-		Statistics::HoneypotInc();
+		ae_Statistics::HoneypotInc();
 		$comment->setStatus( 'spam' );
 	}
 }
