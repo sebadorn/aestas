@@ -7,9 +7,9 @@ if( !defined( 'ROLE' ) ) {
 
 
 if( !isset( $_GET['page'] ) || !ae_Validate::isDigit( $_GET['page'] ) ) {
-	$_GET['page'] = 0;
+	$_GET['page'] = 1;
 }
-define( 'PAGE', $_GET['page'] );
+define( 'PAGE', $_GET['page'] - 1 );
 
 
 $filter = ae_ContentOfRules::FilterForRules();
