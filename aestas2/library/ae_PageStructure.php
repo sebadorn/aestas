@@ -291,7 +291,7 @@ class ae_PageStructure {
 		$query_string = preg_replace( $del_from_query, '', $query_string );
 		$query_string = str_replace( '&', '&amp;', $query_string );
 
-		$pages = floor( $total / $limit );
+		$pages = ceil( $total / $limit );
 
 		$out = '<a class="first" href="' . $query_string . '">«</a>' . PHP_EOL;
 
@@ -305,7 +305,7 @@ class ae_PageStructure {
 
 		while( $limit_top > $pages ) {
 			$limit_top -= 1;
-			if( $limit_bottom > 0 ) {
+			if( $limit_bottom > 1 ) {
 				$limit_bottom -= 1;
 			}
 		}
