@@ -124,7 +124,7 @@ class ae_Statistics {
 			$today = ae_Database::Assoc( $sql, ae_Database::SINGLE_RESULT );
 
 			$return = empty( $today ) ? 0 : $today['stat_value'];
-	
+
 			return self::$statistics[date( 'Y-m-d' )] = $return;
 		}
 
@@ -174,8 +174,8 @@ class ae_Statistics {
 		return ae_Database::Query( '
 			UPDATE `' . TABLE_STATS . '`
 			SET
-				set_value = set_value + 1
-			WHERE set_name = "honeypot"
+				stat_value = stat_value + 1
+			WHERE stat_name = "honeypot"
 		' );
 	}
 
