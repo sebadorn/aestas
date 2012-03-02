@@ -15,12 +15,11 @@ else {
 	$mpq = new ae_ManagePostQuery( $filter );
 
 ?>
-
-
-<div id="manage">
-
+<header class="content-menu">
 	<h1>Posts</h1>
+</header>
 
+<div class="content manage posts">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfPost::StatusFilterNav() ?>

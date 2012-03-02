@@ -10,10 +10,11 @@ $themes = ae_Theme::getThemes();
 $theme = ae_Settings::getSetting( 'blog_theme' );
 
 ?>
-<div id="theme">
-
+<header class="content-menu">
 	<h1>Choose Theme</h1>
+</header>
 
+<div class="content theme choose">
 
 	<?php if( ae_Cookies::isInThemePreview() ) : ?>
 	<form accept-charset="utf-8" action="theme/preview.php" class="endpreview cleaninfo" method="post">

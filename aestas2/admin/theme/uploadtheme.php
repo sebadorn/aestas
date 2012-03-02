@@ -6,9 +6,11 @@ if( !defined( 'ROLE' ) ) {
 }
 
 ?>
-<div id="media" class="upload theme-archive">
-
+<header class="content-menu">
 	<h1>Upload Theme</h1>
+</header>
+
+<div class="content media upload">
 
 	<p class="cleaninfo">
 		A theme can be uploaded as ZIP archive.<br />

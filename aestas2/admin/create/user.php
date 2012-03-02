@@ -29,9 +29,11 @@ if( isset( $_GET['error'] ) ) {
 	}
 }
 ?>
-<div id="create" class="user">
-
+<header class="content-menu">
 	<h1>Add User</h1>
+</header>
+
+<div class="content create user">
 
 	<?php if( !empty( $nametaken ) ) : ?>
 	<p class="info error">The requested name already exists. Please choose another one.</p>

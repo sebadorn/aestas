@@ -15,12 +15,11 @@ else {
 	$user_count = $muq->count_users();
 
 ?>
-
-
-<div id="manage">
-
+<header class="content-menu">
 	<h1>Users</h1>
+</header>
 
+<div class="content manage users">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfUser::RoleFilterUserNav() ?>

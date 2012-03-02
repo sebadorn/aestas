@@ -11,11 +11,12 @@ $vispage = isset( $_GET['visstats'] ) ? $_GET['visstats'] : date( 'Y' );
 
 ae_ReferrerStats::InitStats( $year, $month );
 ?>
-
-
-<div id="manage" class="stats">
-
+<header class="content-menu">
 	<h1>Statistics</h1>
+</header>
+
+
+<div class="content manage stats">
 
 	<h2>Visits</h2>
 

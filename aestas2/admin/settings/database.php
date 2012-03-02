@@ -7,8 +7,12 @@ if( !defined( 'ROLE' ) ) {
 
 
 ?>
-<div id="set">
-
+<header class="content-menu">
 	<h1>Database</h1>
+</header>
+
+<div class="content settings database">
+
+
 
 </div>

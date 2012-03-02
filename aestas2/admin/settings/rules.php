@@ -17,12 +17,11 @@ $filter = ae_ContentOfRules::FilterForRules();
 $rules = new ae_ManageRules( $filter );
 $rules_count = ae_ManageRules::CountRulesByStatus( $filter['status'] );
 ?>
-
-
-<div id="manage">
-
+<header class="content-menu">
 	<h1>Rules</h1>
+</header>
 
+<div class="content manage rules">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfRules::StatusFilterNav() ?>

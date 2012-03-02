@@ -1,486 +1,68 @@
 
-/*----------------*/
-/*     create     */
-/*----------------*/
-
-
-	#create form {
-		position: relative;
-	}
-
-		#create li {
-			margin-bottom: 3px;
-		}
-
-	#create input[type="text"] {
-		padding: 4px 6px;
-		width: 96%;
-	}
-
-	#create textarea {
-		width: 96%;
-	}
-
-	#create div fieldset,
-	.themeedit div fieldset {
-		margin-bottom: 22px;
-	}
-
-		#create legend,
-		#media legend,
-		.themeedit #choose legend {
-			border: 1px solid #e0e0e0;
-			border-bottom: 0;
-			box-shadow: inset 0 10px 20px 0 #ececec;
-			-moz-box-shadow: inset 0 10px 20px 0 #ececec;
-			-webkit-box-shadow: inset 0 10px 20px 0 #ececec;
-			text-shadow: #ffffff 0 1px 0;
-			width: 200px;
-		}
-
-			#create div div p {
-				color: #606060;
-				margin-top: 6px;
-			}
-
-
-#part-one {
-	margin-right: 304px;
+#title legend,
+#content legend {
+	display: none;
 }
 
-.cr-category #part-one {
-	margin-bottom: 50px;
+#title input {
+	font-size: 140%;
+	margin-bottom: 20px;
+	padding: 10px 14px;
+	width: 790px;
+}
+
+#content textarea {
+	padding: 10px 14px;
+	width: 790px;
 }
 
 #part-two {
-	position: absolute;
-	right: 0;
-	top: 10px;
-	width: 280px;
+	display: none;
 }
 
-	#create #part-two legend,
-	#precontent legend,
-	.themeedit #choose legend {
-		background-color: #e4e4e4;
-		color: #303030;
-		padding: 4px 10px 3px;
+
+#ext_options {
+	background-color: #f2f2f2;
+	margin: 60px -40px -30px;
+	padding: 0 40px 30px;
+}
+
+	#ext_nav li {
+		border-top: 4px solid transparent;
+		color: #808080;
+		cursor: pointer;
+		display: inline-block;
+		font-family: "OpenSans Light WebFont";
+		font-size: 130%;
+		margin: 0 30px 10px 0;
+		padding: 26px 0 10px 0;
 	}
 
-		#create #part-two fieldset div,
-		#precontent div,
-		.themeedit #choose ul {
-			background-color: #ffffff;
-			border: 1px solid #e0e0e0;
-			border-top-color: #e4e4e4;
-			padding: 10px;
-		}
-
-
-
-	/***   part one   ***/
-
-
-	#precontent {
-		overflow: hidden;
-		width: 98%;
+	#ext_nav li.active {
+		color: #000000;
 	}
 
-		#precontent p {
-			display: inline-block;
-			margin: 0 0 6px 0;
-			position: relative;
-			top: -3px;
+	#ext_nav li:hover {
+		border-color: #80b0e0;
+	}
+
+		.categories ul ul {
+			margin-left: 26px;
 		}
 
-		#precontent input[type="text"] {
-			margin-bottom: 6px;
+		.categories li {
+			padding: 4px 0;
+		}
+
+		.categories ul li:last-child {
+			padding-bottom: 0;
+		}
+
+		.categories input[type="checkbox"] {
+			margin-right: 10px;
 			vertical-align: middle;
-			width: 40% !important;
 		}
 
-		#precontent label {
-			display: inline-block;
-			font-weight: bold;
-			top: -3px;
-			position: relative;
-			width: 80px;
+		.categories label:hover {
+			color: #b06010;
 		}
-
-		#precontent div div {
-			border: 0;
-			margin: -2px 0 0 0;
-			padding: 0 0 0 92px;
-		}
-
-			#precontent div div label {
-				top: 0;
-				margin-bottom: 6px;
-				width: auto;
-			}
-
-			#precontent div div select {
-				display: block;
-				margin: 0 0 6px 24px;
-				min-width: 140px;
-				padding: 3px 5px;
-			}
-
-
-
-	#title,
-	#content {
-		border: 0 !important;
-		padding: 0 !important;
-	}
-
-	#title div,
-	#content div {
-		background-color: transparent !important;
-		border: 0 !important;
-		padding: 0 !important;
-	}
-
-		#title legend,
-		#content legend {
-			display: none;
-		}
-
-
-			#create #title input {
-				font-size: 180%;
-			}
-
-				#create #title p input {
-					border: 0;
-					font-size: 110%;
-					padding: 0;
-					width: 131px;
-				}
-
-			#create #content textarea {
-				font-size: 10pt;
-				height: 270px;
-			}
-
-
-
-	/***   part two   ***/
-
-
-		#create #date .manually,
-		#create #date .expires_set {
-			border-top: 0;
-			background-color: #f6f6f6;
-		}
-
-		#create #date .expires {
-			border-top: 0;
-		}
-
-			#create #date input[type="text"] {
-				text-align: center;
-				width: 22px;
-			}
-
-			#date input[type="checkbox"] {
-				width: auto !important;
-			}
-
-			#create #date .year { width: 34px !important; }
-
-			#create .categories ul,
-			#create .parent ul {
-				background-color: #ffffff;
-				border: 1px solid #d0d0d0;
-				max-height: 162px;
-				overflow: auto;
-				padding: 4px 6px;
-			}
-
-				#create .categories ul ul,
-				#create .parent ul ul {
-					border: 0;
-					overflow: visible;
-					padding: 0;
-				}
-
-
-
-		/***   submit   ***/
-
-
-			#create #next {
-				margin-top: -10px;
-			}
-
-				#create #next input {
-					width: 90px;
-				}
-
-				#create #next input[name="publish"] {
-					display: block;
-					margin-top: 10px;
-				}
-
-
-
-	/***   extended options   ***/
-
-	#ext_options {
-		background-color: #f4f4f4;
-		border: 1px solid #e0e0e0;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-		clear: both;
-	}
-
-		#ext_nav {
-			background: #e4e4e4;
-			border-bottom: 1px solid #e0e0e0;
-			margin: 0;
-		}
-
-			#ext_nav li {
-				background: #e0e0e0;
-				border-right: 1px solid #c3c3c3;
-				-moz-box-shadow: inset 0 10px 20px 0 #ececec;
-				-webkit-box-shadow: inset 0 10px 20px 0 #ececec;
-				box-shadow: inset 0 10px 20px 0 #ececec;
-				color: #303030;
-				cursor: pointer;
-				display: inline-block;
-				margin: 0 -4px 0 0;
-				padding: 4px 10px;
-				position: relative;
-				text-shadow: 0 1px 0 #ffffff;
-				width: 68px;
-			}
-
-			#ext_nav li:hover {
-				-moz-box-shadow: inset 0 10px 20px 0 #f4f4f4;
-				-webkit-box-shadow: inset 0 10px 20px 0 #f4f4f4;
-				box-shadow: inset 0 10px 20px 0 #f4f4f4;
-			}
-
-			#ext_nav li.active {
-				background-color: #f4f4f4;
-				-moz-box-shadow: inset 0 10px 20px 0 #fafafa;
-				-webkit-box-shadow: inset 0 10px 20px 0 #fafafa;
-				box-shadow: inset 0 10px 20px 0 #fafafa;
-				color: #000000;
-				padding-bottom: 5px;
-				margin-bottom: -1px;
-			}
-
-
-		#ext_options div {
-			padding: 30px;
-		}
-
-
-
-		/***   cates   ***/
-
-		div.cates ul {
-			max-height: 314px;
-			overflow: auto;
-			padding-right: 20px;
-			width: 240px;
-		}
-
-			div.cates ul ul {
-				padding: 0;
-				width: auto;
-			}
-
-				div.cates ul * li:last-child {
-					margin: 0 !important;
-				}
-
-			#create li.default {
-				background-color: #e0e0e0;
-				font-weight: bold;
-				margin: -4px -6px 4px;
-				padding: 4px 6px;
-				text-shadow: #ffffff 0 1px 0;
-			}
-
-
-
-		/***   tags and trackbacks and protect and permalink   ***/
-
-		div.tags input[type="text"],
-		div.tracks input[type="text"],
-		div.protect input[type="text"],
-		div.protect input[type="password"],
-		div.permalink input[type="text"] {
-			width: 56% !important;
-		}
-
-			div.tags ul,
-			div.tracks ul {
-				margin-top: 10px;
-			}
-
-				div.tags li {
-					display: inline-block;
-					margin-right: 16px;
-				}
-
-				div.tracks li {
-					margin-right: 16px;
-				}
-
-					.tags li img,
-					.tracks li img {
-						border: 1px solid transparent;
-						cursor: pointer;
-						height: 16px;
-						margin-right: 2px;
-						vertical-align: middle;
-						width: 16px;
-					}
-
-					.tags li img:hover,
-					.tracks li img:hover {
-						border-color: #d04000;
-						border-radius: 10px;
-						-moz-border-radius: 10px;
-					}
-
-
-		/***   excerpt   ***/
-
-		div.excerpt ul {
-			margin-top: 6px;
-		}
-
-
-		/***   permalink   ***/
-
-		div.permalink .sug {
-			margin: 0 0 6px;
-			word-wrap: break-word;
-		}
-
-			div.permalink span {
-				color: #000000;
-			}
-
-		#permalink {
-			color: #000000 !important;
-		}
-
-
-		/***   protect   ***/
-
-		div.protect ul {
-			margin-top: 2px;
-		}
-
-		div.protect input[type="text"] {
-			display: none;
-		}
-
-		div.protect .sec_check {
-			margin: 0 0 4px 0;
-		}
-
-
-
-
-		/***   Reply to Comment   ***/
-
-		.reply-to {
-			background-color: #f2f2ff;
-			border: 2px solid #e0e0ff;
-			margin: 0 318px 16px 0;
-			max-height: 102px;
-			padding: 10px;
-			overflow: auto;
-		}
-
-			.reply-to .name {
-				display: block;
-				font-weight: bold;
-			}
-
-
-
-/***   Create User   ***/
-
-#create.user {
-	position: relative;
-}
-
-	#create.user fieldset {
-		margin-bottom: 20px;
-		margin-right: 304px;
-		overflow: hidden;
-	}
-
-		#create.user legend {
-			background-color: #e4e4e4;
-			color: #303030;
-			padding: 4px 10px 3px;
-		}
-
-		#create.user fieldset p,
-		.user fieldset span {
-			color: #606060;
-		}
-
-		#create.user #explainrole {
-			margin-top: 6px;
-		}
-
-		#create.user .nochange { /* Manage -> Users -> Edit */
-			margin-top: 0 !important;
-		}
-
-			#create.user fieldset p strong {
-				color: #000000;
-			}
-
-	
-	#create.user div.right-column {
-		margin: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 280px;
-	}
-
-		#create.user fieldset.next,
-		#create.user fieldset#role,
-		#create.user fieldset#status {
-			width: 280px;
-		}
-
-		#create.user .next input {
-			width: auto !important;
-		}
-
-		#create.user fieldset div,
-		#create.user fieldset ul {
-			background-color: #ffffff;
-			border: 1px solid #e0e0e0;
-			padding: 10px;
-		}
-
-			#create.user fieldset input {
-				display: block;
-				width: 280px !important;
-			}
-
-			#create.user fieldset input[type="checkbox"] {
-				display: inline !important;
-				width: auto !important;
-			}
-
-			#create.user fieldset#password input {
-				display: inline;
-				margin-bottom: 6px;
-				vertical-align: middle;
-			}

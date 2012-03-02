@@ -3,14 +3,12 @@
 if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 
 
-	/* Defining the SALT
-	 */
+	/* Defining the SALT */
 	define( 'SALT', $salt );
 	unset( $salt );
 
 
-	/* Defining HASH_ROUNDS
-	 */
+	/* Defining HASH_ROUNDS */
 	if( $round_hashing < 1 ) {
 		$round_hashing = 4000;
 	}
@@ -18,14 +16,12 @@ if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 	unset( $round_hashing );
 
 
-	/* Defining the LANG
-	 */
+	/* Defining the LANG */
 	define( 'LANG', $lang );
 	unset( $lang );
 
 
-	/* Set include paths
-	 */
+	/* Set include paths */
 	set_include_path(
 		'.' . PATH_SEPARATOR .
 		'..' . PATH_SEPARATOR .
@@ -36,8 +32,7 @@ if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 	);
 
 
-	/* Autoloader for classes in library.
-	 */
+	/* Autoloader for classes in library. */
 
 	function autoload( $class_name ) {
 		require( $class_name . '.php' );
@@ -46,23 +41,20 @@ if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 	spl_autoload_register( 'autoload' );
 
 
-	/* Making contact
-	 */
+	/* Making contact */
 
-	$db_connect = @mysql_connect( $db_host, $db_user, $db_pass );
+	$db_connected = ae_Database::Connect( $db_host, $db_user, $db_pass, 'utf8' );
 
-	if( !$db_connect ) { // If connection failed
+	if( !$db_connected ) { // If connection failed
 		echo ae_ErrorMessages::MySQLConnectFail();
 		exit;
 	}
 
-	if( !mysql_select_db( $db_name ) ) { // If specific database is not available
-		mysql_close( $db_connect );
+	if( !ae_Database::SelectDatabase( $db_name ) ) { // If specific database is not available
+		ae_Database::Close( $db_connect );
 		echo ae_ErrorMessages::MySQLDbNameFail();
 		exit;
 	}
-
-	mysql_set_charset( 'utf8' );
 
 	unset( $db_name );
 	unset( $db_user );
@@ -70,8 +62,7 @@ if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 	unset( $db_host );
 
 
-	/* Tablenames
-	 */
+	/* Tablenames */
 
 	// Shorts for tablenames
 	define( 'TABLE_POSTS',			$db_prefix . 'posts' );
@@ -91,11 +82,14 @@ if( !defined( 'INSTALL' ) || defined( 'INSTALL_STEP_2' ) ) {
 	unset( $db_prefix );
 
 
-	/* Check if tables are reachable
-	 */
+	/* Check if tables are reachable */
 
-	if( !@mysql_query( 'SELECT cat_id FROM `' . TABLE_CATEGORIES . '` LIMIT 1' ) ) {
-		mysql_close( $db_connect );
+	try {
+		ae_Database::Query( 'SELECT cat_id FROM `' . TABLE_CATEGORIES . '` LIMIT 1' );
+	}
+	catch( Exception $e ) {
+		ae_Database::Close();
+		echo $e;
 		echo ae_ErrorMessages::MySQLTableFail();
 		exit;
 	}

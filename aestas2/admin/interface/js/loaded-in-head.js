@@ -4,12 +4,13 @@
 
 // Also adds a CSS rule to show all elements with the class "hideifnojs".
 
-var headEle = document.getElementsByTagName( "head" )[0];
+var headEle = document.getElementsByTagName( "head" )[0],
+	css = ".hideonload { display: none; } .hideifnojs { visibility: visible !important; }";
+
 styleEle = document.createElement( "style" );
 styleEle.type = "text/css";
-headEle.appendChild( styleEle );
 
-var css = ".hideonload { display: none; } .hideifnojs { visibility: visible !important; }";
+headEle.appendChild( styleEle );
 
 if( styleEle.styleSheet ) {
 	styleEle.styleSheet.cssText = css;

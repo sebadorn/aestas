@@ -108,11 +108,11 @@ switch( ae_URL::StructureOfTag() ) {
 }
 
 ?>
-
-
-<div id="set">
-
+<header class="content-menu">
 	<h1>Permalinks</h1>
+</header>
+
+<div class="content settings permalinks">
 
 	<p class="cleaninfo">
 		Permalink structures other than the default one need the PHP module <code>mod_rewrite</code> to work.

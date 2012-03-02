@@ -18,12 +18,11 @@ else {
 	$pageflip_empty = ( $media_count <= $media->getLimit() ) ? ' empty' : '';
 
 ?>
-
-
-<div id="manage" class="media">
-
+<header class="content-menu">
 	<h1>Library</h1>
+</header>
 
+<div class="content manage media">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfMedia::TypeFilterMediaNav() ?>

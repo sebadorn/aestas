@@ -6,9 +6,11 @@ if( !defined( 'ROLE' ) ) {
 }
 
 ?>
-<div id="media" class="upload">
-
+<header class="content-menu">
 	<h1>Upload</h1>
+</header>
+
+<div class="content media upload">
 
 	<form accept-charset="utf-8" action="media/upload-files.php" enctype="multipart/form-data" method="post">
 

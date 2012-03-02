@@ -15,11 +15,11 @@ else {
 	$pageflip = ae_PageStructure::BuildPageflip( PAGE, $mcq->getLimit(), $mcq->count_comments() );
 
 ?>
-
-
-<div id="manage">
-
+<header class="content-menu">
 	<h1>Comments</h1>
+</header>
+
+<div class="content manage comments">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfComment::StatusFilterCommentNav() ?>

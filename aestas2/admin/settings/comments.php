@@ -67,11 +67,11 @@ switch( ae_Settings::getSetting( 'gravatar_default' ) ) {
 }
 
 ?>
-
-
-<div id="set">
-
+<header class="content-menu">
 	<h1>Discussion</h1>
+</header>
+
+<div class="content settings discussion">
 
 	<form accept-charset="utf-8" action="set/change-comments.php" method="post">
 

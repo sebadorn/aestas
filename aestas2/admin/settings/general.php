@@ -15,11 +15,11 @@ if( ae_Settings::getSetting( 'auth_system' ) == 'session' ) {
 	$sel_cookie = '';
 }
 ?>
-
-
-<div id="set">
-
+<header class="content-menu">
 	<h1>General Settings</h1>
+</header>
+
+<div class="content settings general">
 
 	<form accept-charset="utf-8" action="set/change-general.php" method="post">
 

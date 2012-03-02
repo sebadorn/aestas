@@ -3,8 +3,7 @@
 */
 $( document ).ready( function() {
 
-
-	/* Show elements only users with Javascript can use anyways */
+	// Show elements only users with Javascript can use anyways
 	$( "*[class='hideonload']" ).show();
 
 } );

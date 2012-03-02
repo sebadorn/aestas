@@ -16,9 +16,11 @@ if( !isset( $_GET['file'] ) ) {
 }
 
 ?>
-<div id="theme" class="themeedit">
-
+<header class="content-menu">
 	<h1>Edit Theme</h1>
+</header>
+
+<div class="content theme edit">
 
 	<form accept-charset="utf-8" action="theme/edit-themefile.php" method="post">
 

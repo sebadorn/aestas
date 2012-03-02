@@ -8,10 +8,11 @@ if( !defined( 'ROLE' ) ) {
 ae_Permissions::Check( 'create', 'addcategory' );
 
 ?>
-<div id="create" class="cr-category">
-
+<header class="content-menu">
 	<h1>Add Category</h1>
+</header>
 
+<div class="content create category">
 
 	<form accept-charset="utf-8" action="create/add-category.php" method="post">
 

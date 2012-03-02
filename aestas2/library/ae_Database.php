@@ -4,7 +4,45 @@ class ae_Database {
 
 	const SINGLE_RESULT = 1;
 
+	protected static $connection;
 	protected static $query_count = 0;
+
+
+	/**
+	 * Connect to MySQL database.
+	 * @param string $host
+	 * @param string $user
+	 * @param string $pass
+	 * @return boolean
+	 */
+	public static function Connect( $host, $user, $pass, $charset = 'utf8' ) {
+		self::$connection = @mysql_connect( $host, $user, $pass );
+		if( self::$connection ) {
+			mysql_set_charset( $charset, self::$connection );
+		}
+		return self::$connection !== false;
+	}
+
+
+	/**
+	 * Select a database.
+	 * @param string $name
+	 * @return boolean
+	 */
+	public static function SelectDatabase( $name ) {
+		if( self::$connection === false ) {
+			return false;
+		}
+		return mysql_select_db( $name, self::$connection );
+	}
+
+
+	/**
+	 * Close connection.
+	 */
+	public static function Close() {
+		mysql_close( self::$connection );
+	}
 
 
 	/**
@@ -12,14 +50,12 @@ class ae_Database {
 	 * Throws an exception in error case.
 	 */
 	public static function Query( $sql ) {
-		$query = mysql_query( $sql );
+		$query = mysql_query( $sql, self::$connection );
 
 		self::$query_count++;
 
 		if( $query === false ) {
-			throw new Exception(
-				ae_ErrorMessages::MySQLQuery( mysql_errno(), mysql_error() )
-			);
+			throw new Exception( ae_ErrorMessages::MySQLQuery( mysql_errno(), mysql_error() ) );
 		}
 
 		return $query;

@@ -1,19 +1,20 @@
 <?php
 
-if( !defined( 'ROLE') ) {
+if( !defined( 'ROLE' ) ) {
 	header( 'Location: ../index.php?error=notloggedin' );
 	exit;
 }
 
-ae_Permissions::Check( 'create', 'addpost' );
+ae_Permissions::Check( 'create', 'addpage' );
 
 ?>
+<header class="content-menu">
+	<h1>Add Page</h1>
+</header>
 
-<div id="create">
+<div class="content create">
 
-	<h1>Add Post</h1>
-
-	<form accept-charset="utf-8" action="create/add-post.php" method="post">
+	<form method="post" action="create/add-page.php" accept-charset="utf-8">
 
 
 		<div id="part-one">
@@ -89,23 +90,16 @@ ae_Permissions::Check( 'create', 'addpost' );
 		<div id="ext_options">
 
 			<ul id="ext_nav">
-				<li class="active">Categories</li>
-				<li>Tags</li>
+				<li class="active">Tags</li>
 				<li>Desc</li>
-				<li>Excerpt</li>
 				<li>Tracks</li>
 				<li>Protect</li>
 				<li>Permalink</li>
+				<li>Hierarchy</li>
 				<li>Other</li>
 			</ul>
 
-			<div class="categories">
-				<ul>
-					<?php echo ae_Misc::ListCategories( 'checkbox' ) ?>
-				</ul>
-			</div>
-
-			<div class="tags hideonload">
+			<div class="tags">
 				<input name="tags" type="text" />
 				<input class="hideifnojs" type="button" value="add to list" />
 				<p>Multiple tags can be seperated with semicolons (;).</p>
@@ -116,32 +110,12 @@ ae_Permissions::Check( 'create', 'addpost' );
 				<p>Description. Used in in the meta-tag with the same name. Should briefly summarize the content.</p>
 			</div>
 
-			<div class="excerpt hideonload">
-				<textarea name="excerpt" cols="40" rows="5"></textarea>
-				<ul>
-					<li>
-						<input name="exc-prev" type="checkbox" value="true" id="exc-prev" />
-						<label for="exc-prev">use excerpt for preview</label>
-					</li>
-					<li>
-						<input name="exc-news" type="checkbox" value="true" id="exc-news" />
-						<label for="exc-news">use excerpt in newsfeed</label>
-					</li>
-				</ul>
-				<p>
-					The excerpt can contain for example the first two paragraphs of your content.
-					But as long as you do not intend to use it as preview or in the feed you can as well leave it blank.
-					The excerpt can contain XHTML.
-				</p>
-			</div>
-
 			<div class="tracks hideonload">
 				<input name="tracks" type="text" />
 				<input class="hideifnojs" type="button" value="add to list" />
 				<p>
 					A trackback will leave something like a comment on the listed posts.
 					It contains the name of your post, a link to the post and a veeery short excerpt.
-					Multiple URLs can be separated with white spaces.
 				</p>
 			</div>
 
@@ -158,21 +132,30 @@ ae_Permissions::Check( 'create', 'addpost' );
 				<p>Just type your password in here.</p>
 			</div>
 
-			<?php if( ae_URL::StructureOfPost() != 'default' ) : ?>
 			<div class="permalink hideonload">
 				<p class="sug hideifnojs">
-					Suggestion: <?php echo URL . '/' . ae_URL::Post2Permalink( 0, '', date( 'Y' ), date( 'm' ), date( 'd' ) ) ?><span></span>
+					Suggestion: <?php echo URL . '/' . ae_URL::Page2Permalink( 0, '', date( 'Y' ), date( 'm' ), date( 'd' ) ) ?><span></span>
 				</p>
 				<input name="permalink" type="text" />
 				<input class="hideifnojs" type="button" value="validate" />
 				<p id="permalink"></p>
 				<p>
 					An address easier to remember.
-					You can use alphanumeric characters (a-z and 0-9) and the minus (-).<br />
-					<code>mod_rewrite</code> has to be enabled.
+					You can use alphanumeric characters (a-z and 0-9) and the minus (-).
 				</p>
 			</div>
-			<?php endif; ?>
+
+			<div class="hierarchy hideonload">
+				<select name="parent">
+					<optgroup label="None">
+						<option value="0">---</option>
+					</optgroup>
+					<optgroup label="Page">
+						<?php echo ae_Misc::PagesForSelect() ?>
+					</optgroup>
+				</select>
+				<p>The new page is a sub page of the selected one.</p>
+			</div>
 
 			<div class="other hideonload">
 				<ul>
@@ -184,11 +167,18 @@ ae_Permissions::Check( 'create', 'addpost' );
 						<input name="con-php" type="checkbox" value="true" id="con-php" />
 						<label for="con-php">contains PHP</label>
 					</li>
+					<li>
+						<input name="list-nav" type="checkbox" value="true" id="list-nav" />
+						<label for="list-nav">show page in lists</label>
+					</li>
+					<li>
+						<input name="se-en" type="checkbox" value="true" id="se-en" />
+						<label for="se-en">do not list in search engines</label>
+					</li>
 				</ul>
 			</div>
 
 		</div>
-
 
 	</form>
 

@@ -32,11 +32,11 @@ switch( $nfc[0] ) {
 		$ch_def = ' checked="checked"';
 }
 ?>
-
-
-<div id="set">
-
+<header class="content-menu">
 	<h1>Newsfeed</h1>
+</header>
+
+<div class="content settings newsfeed">
 
 	<form accept-charset="utf-8" action="set/change-newsfeed.php" method="post">
 

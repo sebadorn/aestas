@@ -1,10 +1,9 @@
 <?php
 
-if( !ae_Permissions::hasRights( $area, $content ) ) {
+if( !ae_Permissions::hasRights( $area, $show ) ) {
 	echo ae_PageStructure::MissingRights();
 }
 else {
-
 	if( !isset( $_GET['page'] ) || !ae_Validate::isDigit( $_GET['page'] ) ) {
 		$_GET['page'] = 1;
 	}
@@ -16,12 +15,11 @@ else {
 	$cats_count = ae_ManageCategoryQuery::count_categories_bystatus( $filter['status'] );
 
 ?>
-
-
-<div id="manage">
-
+<header class="content-menu">
 	<h1>Categories</h1>
+</header>
 
+<div class="content manage categories">
 
 	<ul id="status_filter">
 		<?php echo ae_ContentOfCategory::StatusFilterCategoryNav() ?>

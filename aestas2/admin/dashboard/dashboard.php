@@ -6,9 +6,12 @@ if( !defined( 'ROLE' ) ) {
 }
 
 ?>
+<header class="content-menu">
+	<h1>Dashboard</h1>
+</header>
 
-<div id="set">
+<div class="content">
 
-	<h1>Blogroll</h1>
+
 
 </div>
