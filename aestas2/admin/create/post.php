@@ -30,7 +30,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 			<fieldset id="content">
 				<legend>Content</legend>
 				<div>
-					<textarea id="editor" name="content" cols="40" rows="14"></textarea>
+					<textarea class="indent" id="editor" name="content"></textarea>
 				</div>
 			</fieldset>
 
@@ -88,38 +88,43 @@ ae_Permissions::Check( 'create', 'addpost' );
 		</div>
 
 
-		<div id="ext_options">
+		<div id="ext_options" class="tabsection">
 
-			<ul id="ext_nav">
-				<li class="active">Categories</li>
-				<li>Tags</li>
-				<li>Desc</li>
-				<li>Excerpt</li>
-				<li>Tracks</li>
-				<li>Protect</li>
-				<li>Permalink</li>
-				<li>Other</li>
+			<!-- tabs -->
+			<ul id="ext_nav" class="tabs">
+				<li data-tab-trigger="categories" class="active">Categories</li>
+				<li data-tab-trigger="tags">Tags</li>
+				<li data-tab-trigger="desc">Desc</li>
+				<li data-tab-trigger="excerpt">Excerpt</li>
+				<li data-tab-trigger="tracks">Tracks</li>
+				<li data-tab-trigger="protect">Protect</li>
+				<li data-tab-trigger="permalink">Permalink</li>
+				<li data-tab-trigger="other">Other</li>
 			</ul>
 
-			<div class="categories">
+			<!-- tab panel -->
+			<div data-tab-panel="categories" class="tabpanel categories">
 				<ul>
 					<?php echo ae_Misc::ListCategories( 'checkbox' ) ?>
 				</ul>
 				<span class="clear"></span>
 			</div>
 
-			<div class="tags hideonload">
-				<input name="tags" type="text" />
+			<!-- tab panel -->
+			<div data-tab-panel="tags" class="tabpanel tags hideonload">
+				<input class="addtags" name="tags" type="text" />
 				<input class="hideifnojs" type="button" value="add to list" />
-				<p>Multiple tags can be seperated with semicolons (;).</p>
+				<p class="hint">Multiple tags can be seperated with semicolons (;).</p>
 			</div>
 
-			<div class="desc hideonload">
-				<textarea name="desc" cols="40" rows="4"></textarea>
-				<p>Description. Used in in the meta-tag with the same name. Should briefly summarize the content.</p>
+			<!-- tab panel -->
+			<div data-tab-panel="desc" class="tabpanel desc hideonload">
+				<textarea name="desc"></textarea>
+				<p class="hint">Description. Used in in the meta-tag with the same name. Should briefly summarize the content.</p>
 			</div>
 
-			<div class="excerpt hideonload">
+			<!-- tab panel -->
+			<div data-tab-panel="excerpt" class="tabpanel excerpt hideonload">
 				<textarea name="excerpt" cols="40" rows="5"></textarea>
 				<ul>
 					<li>
@@ -131,24 +136,26 @@ ae_Permissions::Check( 'create', 'addpost' );
 						<label for="exc-news">use excerpt in newsfeed</label>
 					</li>
 				</ul>
-				<p>
+				<p class="hint">
 					The excerpt can contain for example the first two paragraphs of your content.
 					But as long as you do not intend to use it as preview or in the feed you can as well leave it blank.
 					The excerpt can contain XHTML.
 				</p>
 			</div>
 
-			<div class="tracks hideonload">
+			<!-- tab panel -->
+			<div data-tab-panel="tracks" class="tabpanel tracks hideonload">
 				<input name="tracks" type="text" />
 				<input class="hideifnojs" type="button" value="add to list" />
-				<p>
+				<p class="hint">
 					A trackback will leave something like a comment on the listed posts.
 					It contains the name of your post, a link to the post and a veeery short excerpt.
 					Multiple URLs can be separated with white spaces.
 				</p>
 			</div>
 
-			<div class="protect hideonload">
+			<!-- tab panel -->
+			<div data-tab-panel="protect" class="tabpanel protect hideonload">
 				<input name="protect" type="password" />
 				<input class="hideifnojs" type="text" />
 				<input class="hideifnojs" type="button" value="security check" />
@@ -158,18 +165,19 @@ ae_Permissions::Check( 'create', 'addpost' );
 						<label for="cleartext">show as cleartext</label>
 					</li>
 				</ul>
-				<p>Just type your password in here.</p>
+				<p class="hint">Just type your password in here.</p>
 			</div>
 
+			<!-- tab panel -->
 			<?php if( ae_URL::StructureOfPost() != 'default' ) : ?>
-			<div class="permalink hideonload">
+			<div data-tab-panel="permalink" class="tabpanel permalink hideonload">
 				<p class="sug hideifnojs">
 					Suggestion: <?php echo URL . '/' . ae_URL::Post2Permalink( 0, '', date( 'Y' ), date( 'm' ), date( 'd' ) ) ?><span></span>
 				</p>
 				<input name="permalink" type="text" />
 				<input class="hideifnojs" type="button" value="validate" />
 				<p id="permalink"></p>
-				<p>
+				<p class="hint">
 					An address easier to remember.
 					You can use alphanumeric characters (a-z and 0-9) and the minus (-).<br />
 					<code>mod_rewrite</code> has to be enabled.
@@ -177,7 +185,8 @@ ae_Permissions::Check( 'create', 'addpost' );
 			</div>
 			<?php endif; ?>
 
-			<div class="other hideonload">
+			<!-- tab panel -->
+			<div data-tab-panel="other" class="tabpanel other hideonload">
 				<ul>
 					<li>
 						<input name="disable-comm" type="checkbox" value="true" id="disable-comm" />

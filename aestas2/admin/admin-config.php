@@ -19,7 +19,7 @@ $admin_config->charset = 'utf-8';
 // include->javascript: jQuery will always be included
 $admin_config->navigation = array(
 
-	'Dashboard' => array(
+	'Dash' => array(
 		'link' => 'dashboard',
 		'css_class' => 'dashboard',
 		'include' => array(
@@ -127,11 +127,11 @@ $admin_config->navigation = array(
 			'javascript' => array()
 		),
 		'sub_nav' => array(
-			'Choose Theme' => array(
+			'Choose' => array(
 				'link' => 'choose',
 				'css_class' => 'choose'
 			),
-			'Upload Theme' => array(
+			'Upload' => array(
 				'link' => 'upload',
 				'css_class' => 'upload'
 			)

@@ -12,6 +12,7 @@
 }
 
 #content textarea {
+	height: 320px;
 	padding: 10px 14px;
 	width: 790px;
 }
@@ -34,7 +35,7 @@
 		display: inline-block;
 		font-family: "OpenSans Light WebFont";
 		font-size: 130%;
-		margin: 0 30px 10px 0;
+		margin: 0 30px 20px 0;
 		padding: 26px 0 10px 0;
 	}
 
@@ -63,6 +64,11 @@
 			vertical-align: middle;
 		}
 
-		.categories label:hover {
-			color: #b06010;
+		.addtags {
+			margin-right: -5px;
+			min-width: 50%;
+		}
+
+		.tabpanel .hint {
+			margin-top: 10px;
 		}

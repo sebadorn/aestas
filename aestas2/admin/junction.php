@@ -24,7 +24,7 @@ $first_nav_section = current( $admin_config->navigation );
 $area = isset( $_GET['area'] ) ? $_GET['area'] : $first_nav_section['link'];
 $show = isset( $_GET['show'] ) ? $_GET['show'] : '';
 
-$nav_section = $title = $area_key = '';
+$nav_section = $show_key = $area_key = '';
 
 foreach( $admin_config->navigation as $name => &$nav ) {
 	if( $nav['link'] == $area ) {
@@ -34,7 +34,7 @@ foreach( $admin_config->navigation as $name => &$nav ) {
 
 		foreach( $nav['sub_nav'] as &$sub_nav ) {
 			if( $sub_nav['link'] == $show ) {
-				$title = $name;
+				$show_key = $name;
 				$sub_nav['css_class'] .= ' active';
 				break;
 			}
@@ -45,7 +45,7 @@ foreach( $admin_config->navigation as $name => &$nav ) {
 
 // Default to first sub navigation element, if "show" wasn't provided.
 
-if( $title == '' ) {
+if( $show_key == '' ) {
 	reset( $nav_section['sub_nav'] );
 	$show_key = key( $nav_section['sub_nav'] );
 	$nav_section['sub_nav'][$show_key]['css_class'] .= ' active';
