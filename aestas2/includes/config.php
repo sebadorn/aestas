@@ -51,10 +51,10 @@ $lang = 'de';
 $db_name = 'aestas2';
 
 // Your Username
-$db_user = 'sebadosebadorn';
+$db_user = 'Princess Luna';
 
 // Your Password
-$db_pass = 'xhtml10strict';
+$db_pass = 'Moon Pony';
 
 // In most cases the hostname is "localhost"
 $db_host = 'localhost';

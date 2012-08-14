@@ -2,30 +2,21 @@
 
 $admin_config = new stdClass;
 
-
 // CMS name in title
 $admin_config->title_cms = 'aestas';
 
 // Seperator between title parts
-$admin_config->title_seperator = ' // ';
-
+$admin_config->title_seperator = ' / ';
 
 // Form charset
 $admin_config->charset = 'utf-8';
 
-
 // Navigation structure
-// include->css: screen.css will always be included
-// include->javascript: jQuery will always be included
 $admin_config->navigation = array(
-
 	'Dash' => array(
 		'link' => 'dashboard',
-		'css_class' => 'dashboard',
-		'include' => array(
-			'css' => array( 'dashboard.css' ),
-			'javascript' => array()
-		),
+		'css_class' => 'nav-link-dash',
+
 		'sub_nav' => array(
 			'Dashboard' => array(
 				'link' => 'dashboard',
@@ -44,11 +35,8 @@ $admin_config->navigation = array(
 
 	'Create' => array(
 		'link' => 'create',
-		'css_class' => 'create',
-		'include' => array(
-			'css' => array( 'create.css' ),
-			'javascript' => array( 'jquery.indent-1.0.min.js' )
-		),
+		'css_class' => 'nav-link-create',
+
 		'sub_nav' => array(
 			'Add Post' => array(
 				'link' => 'post',
@@ -71,11 +59,8 @@ $admin_config->navigation = array(
 
 	'Manage' => array(
 		'link' => 'manage',
-		'css_class' => 'manage',
-		'include' => array(
-			'css' => array( 'manage.css' ),
-			'javascript' => array( 'jquery.indent-1.0.min.js' )
-		),
+		'css_class' => 'nav-link-manage',
+
 		'sub_nav' => array(
 			'Comments' => array(
 				'link' => 'comments',
@@ -102,11 +87,8 @@ $admin_config->navigation = array(
 
 	'Media' => array(
 		'link' => 'media',
-		'css_class' => 'media',
-		'include' => array(
-			'css' => array( 'media.css' ),
-			'javascript' => array()
-		),
+		'css_class' => 'nav-link-media',
+
 		'sub_nav' => array(
 			'Library' => array(
 				'link' => 'library',
@@ -121,11 +103,8 @@ $admin_config->navigation = array(
 
 	'Theme' => array(
 		'link' => 'theme',
-		'css_class' => 'theme',
-		'include' => array(
-			'css' => array( 'theme.css' ),
-			'javascript' => array()
-		),
+		'css_class' => 'nav-link-theme',
+
 		'sub_nav' => array(
 			'Choose' => array(
 				'link' => 'choose',
@@ -140,11 +119,8 @@ $admin_config->navigation = array(
 
 	'Settings' => array(
 		'link' => 'settings',
-		'css_class' => 'settings',
-		'include' => array(
-			'css' => array( 'settings.css' ),
-			'javascript' => array()
-		),
+		'css_class' => 'nav-link-settings',
+
 		'sub_nav' => array(
 			'General' => array(
 				'link' => 'general',
@@ -172,5 +148,4 @@ $admin_config->navigation = array(
 			),
 		)
 	)
-
 );

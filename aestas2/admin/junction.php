@@ -42,9 +42,7 @@ foreach( $admin_config->navigation as $name => &$nav ) {
 	}
 }
 
-
 // Default to first sub navigation element, if "show" wasn't provided.
-
 if( $show_key == '' ) {
 	reset( $nav_section['sub_nav'] );
 	$show_key = key( $nav_section['sub_nav'] );
@@ -52,9 +50,7 @@ if( $show_key == '' ) {
 	$show = $nav_section['sub_nav'][$show_key]['link'];
 }
 
-
 // Title
-
 $title = $show_key . $admin_config->title_seperator . $admin_config->title_cms;
 
 
@@ -62,7 +58,6 @@ $title = $show_key . $admin_config->title_seperator . $admin_config->title_cms;
 
 $params_header = new stdClass;
 $params_header->title = $title;
-$params_header->css = $admin_config->navigation[$area_key]['include']['css'];
 
 $params_nav = new stdClass;
 $params_nav->area = $area;
@@ -72,11 +67,8 @@ $params_nav->nav = $admin_config->navigation;
 $params_nav->search_was = isset( $_GET['search'] ) ? htmlspecialchars( $_GET['search'] ) : '';
 $params_nav->show = $show;
 
-$params_content = new stdClass;
-
 $params_footer = new stdClass;
 $params_footer->db_queries = ae_Database::getQueryCount() . '&nbsp;DB&nbsp;queries';
-$params_footer->js = $admin_config->navigation[$area_key]['include']['javascript'];
 $params_footer->mem_peak = round( memory_get_peak_usage() / 1024 / 1024, 2 ) . '&nbsp;MB';
 $params_footer->mem_use = round( memory_get_usage() / 1024 / 1024, 2 ) . '&nbsp;MB';
 $params_footer->time_needed = round( microtime( true ) - $timer, 5 ) . '&nbsp;sec';
@@ -91,9 +83,8 @@ $include = '../../' . $area . '/' . $show . '.php';
 
 $page_struct->render( 'html_header.php', $params_header );
 $page_struct->render( 'html_nav.php', $params_nav );
-$page_struct->render( $include, $params_content );
+$page_struct->render( $include );
 $page_struct->render( 'html_footer.php', $params_footer );
-$page_struct->render( 'html_doc_end.php' );
 
 
 ae_Database::Close();

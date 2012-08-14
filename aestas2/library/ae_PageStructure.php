@@ -19,8 +19,8 @@ class ae_PageStructure {
 
 	/**
 	 *
-	 * @param string $filepath
-	 * @param object $params
+	 * @param String $filepath
+	 * @param Object $params
 	 */
 	public function render( $filepath, $params = null ) {
 		include( $this->path . $filepath );
@@ -29,7 +29,7 @@ class ae_PageStructure {
 
 	/**
 	 *
-	 * @param string $path
+	 * @param String $path
 	 */
 	public function set_path( $path ) {
 		$path = trim( $path );

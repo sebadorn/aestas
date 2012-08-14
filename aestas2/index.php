@@ -146,4 +146,4 @@ else {
 }
 
 
-mysql_close( $db_connect );
+ae_Database::Close();
