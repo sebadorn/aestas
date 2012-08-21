@@ -1,0 +1,69 @@
+.midth {
+	display: inline-block;
+	text-align: left;
+}
+
+	.midth fieldset {
+		position: relative;
+	}
+
+	.midth .title {
+		margin-bottom: 16px;
+	}
+
+		.midth legend {
+			background-color: #b0b0b0;
+			color: #ffffff;
+			padding: 6px 0 6px 12px;
+			position: absolute;
+			top: 0;
+			width: 38px;
+		}
+
+		.midth .title:before {
+			border-color: transparent transparent transparent #b0b0b0;
+			border-style: solid;
+			border-width: 16px;
+			content: "";
+			display: inline-block;
+			height: 0;
+			left: 50px;
+			position: absolute;
+			width: 0;
+		}
+
+		.midth .title input {
+			padding-left: 70px;
+			width: 600px;
+		}
+
+		.midth .content legend {
+			display: none;
+		}
+
+		.midth .content textarea {
+			height: 260px;
+			width: 660px;
+		}
+
+
+/* Submit buttons */
+
+.save {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+	.save button {
+		display: block;
+		margin-bottom: 10px;
+		min-width: 128px;
+	}
+
+
+/* Second layer */
+
+.create .tab-section {
+	margin-right: 148px;
+	width: 682px;
+}

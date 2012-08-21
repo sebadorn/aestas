@@ -14,7 +14,7 @@ $j_a_link = 'junction.php?area=';
 	<ul class="area-nav">
 	<?php foreach( $params->nav as $name => $data ): ?>
 		<li class="<?php echo $data['css_class'] ?>">
-			<a href="<?php echo $j_a_link . $data['link'] ?>">
+			<a href="<?php echo $j_a_link . $data['link'] ?>" class="icon">
 				<?php echo $name ?>
 			</a>
 

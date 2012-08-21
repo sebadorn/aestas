@@ -1,0 +1,118 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #3080e0 !important;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px solid #70c0ff;
+}
+
+p.visit,
+p.lost {
+	color: #303030;
+	font-size: 80%;
+	margin: 0 auto;
+	text-align: left;
+	width: 220px;
+}
+
+p.lost {
+	margin-top: -20px;
+	text-align: right;
+}
+
+body {
+	background-color: #f4f4f4;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 160%;
+}
+
+form {
+	margin-top: 120px;
+	text-align: center;
+}
+
+fieldset {
+	background-color: #ffffff;
+	border: 0;
+	border-radius: 7px;
+	box-shadow: 0 0 40px 0 #e0e0e0;
+	display: inline-block;
+	margin: 0 auto 4px;
+	padding: 20px 24px;
+	text-align: left;
+	width: 220px;
+}
+
+h1 {
+	background: url( "../img/aestas-23x32.png" ) left center no-repeat;
+	color: #bababa;
+	font: italic 240% Georgia, serif;
+	margin: 0 auto 24px;
+	position: relative;
+	right: -19px;
+	text-shadow: 0 1px 0 #ffffff;
+	width: 152px;
+}
+
+input {
+	background-color: #ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+input[type="submit"] {
+	background-color: #f0f0f0;
+	border: 1px solid #d0d0d0;
+	border-radius: 4px;
+	box-shadow: inset 0 12px 6px #ffffff;
+	color: #000000;
+	display: block;
+	float: right;
+	margin-top: 12px;
+	padding: 4px 15px 5px;
+}
+
+input[type="submit"]:hover {
+	border-color: #606060;
+}
+
+input[type="submit"],
+label {
+	cursor: pointer;
+}
+
+input[type="text"],
+input[type="password"] {
+	border: 1px solid #d0d0d0;
+	padding: 4px 6px;
+	width: 206px;
+}
+
+.data {
+	margin-bottom: 16px;
+}
+
+label {
+	color: #b0b0b0;
+	display: block;
+}
+
+.success,
+.wrong {
+	background-color: #e08060;
+	border-radius: 7px;
+	color: #ffffff;
+	margin: 0 auto 16px;
+	padding: 8px 14px;
+}
+
+.success {
+	background-color: #90c0e8;
+}

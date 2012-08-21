@@ -1,3 +1,6 @@
+@import "create.css";
+
+
 /* Web fonts */
 /* --------- */
 
@@ -62,21 +65,26 @@
 /* ------------- */
 
 
-* {	/* reset */
+* {
 	margin: 0;
 	padding: 0;
 }
 
-html {	/* background */
+::selection {
+	background-color: #74B4EC;
+	color: #ffffff;
+}
+
+html {
 	background-color: #ffffff;
 	color: #000000;
-	font-family: "OpenSans WebFont", "DejaVu Sans", Verdana, Arial, Helvetica, sans-serif;
-	font-size: 15px;
+	font-family: "OpenSans WebFont", "DejaVu Sans", Arial, Helvetica, sans-serif;
+	font-size: 14px;
 	min-height: 100%;
 }
 
 body {
-	padding-bottom: 40px;
+	padding: 0 60px 40px;
 }
 
 a {
@@ -103,28 +111,13 @@ input, select, textarea {
 	border: 1px solid #d0d0d0;
 	border-radius: 1px;
 	color: #000000;
-	font-size: 100%;
-}
-
-input {
-	font-size: 90%;
+	font: 90% "OpenSans WebFont";
 }
 
 input[type="radio"] {
 	border-color: transparent;
 }
 
-input[type="submit"],
-input[type="button"],
-button {
-	padding: 7px 10px 6px;
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover,
-button:hover {
-	cursor: pointer;
-}
 
 input[type="text"],
 input[type="password"] {
@@ -197,7 +190,7 @@ ul ul {
 
 		.area-nav a {
 			color: #808080;
-			font-family: "OpenSans Semibold WebFont";
+			font: 15px "OpenSans Semibold WebFont";
 			padding: 10px 20px;
 			position: relative;
 			text-transform: uppercase;
@@ -217,10 +210,7 @@ ul ul {
 /* Section image */
 
 .area-nav a:before {
-	display: inline-block;
-	font-family: "IconicFill";
 	margin-right: 5px;
-	position: relative;
 	top: -1px;
 }
 
@@ -333,4 +323,105 @@ ul ul {
 
 .hint {
 	color: #606060;
+}
+
+
+/* Button style */
+
+.button {
+	background-color: #ffffff;
+	border: 1px solid #d0d0d0;
+	border-radius: 2px;
+	box-shadow: 0 -14px 8px -4px #f0f0f0 inset;
+	font-size: 100%;
+	height: 28px;
+	padding: 2px 10px 0;
+	text-align: left;
+}
+
+.button:active {
+	padding: 3px 9px 0 11px;
+}
+
+.button:hover {
+	border-color: #000000;
+	cursor: pointer;
+}
+
+.button.icon:before {
+	margin-right: 10px;
+}
+
+
+/* Font icons */
+
+.icon:before {
+	display: inline-block;
+	font: 16px "IconicFill";
+	position: relative;
+}
+
+.icon-docfill:before { content: "\e066"; }
+.icon-pen:before { content: "\e270e"; }
+.icon-penfill:before { content: "\e005"; }
+.icon-reload:before { content: "\e031"; }
+.icon-wrench:before { content: "\e078"; }
+
+
+/* Tabs sections */
+
+.tab-section {
+	display: inline-block;
+	margin-top: 32px;
+}
+
+	.tab-trigger {
+		margin-bottom: 0px;
+	}
+
+		.tab-trigger li {
+			border-bottom: 3px solid transparent;
+			color: #808080;
+			display: inline-block;
+			font-size: 120%;
+			margin-right: 14px;
+			padding-bottom: 4px;
+			text-transform: uppercase;
+		}
+
+		.tab-trigger li:hover {
+			color: #000000;
+			cursor: pointer;
+		}
+
+		.tab-trigger li.active {
+			border-bottom-color: #d0d0d0;
+			color: #000000;
+		}
+
+	.tab-panel {
+		background-color: #f6f6f6;
+		display: none;
+		padding: 20px;
+	}
+
+	.tab-panel.active {
+		display: block;
+	}
+
+
+/* Main content area */
+
+.main-content-wrapper {
+	margin: 0 auto;
+	position: relative;
+}
+
+	.main-content-wrapper * {
+		text-align: left;
+		vertical-align: top;
+	}
+
+.main-content-wrapper.create {
+	text-align: center;
 }
