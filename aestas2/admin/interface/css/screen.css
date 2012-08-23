@@ -97,6 +97,10 @@ a:hover {
 	color: #0040d0;
 }
 
+code {
+	font-family: "DejaVu Sans Mono", "Droid Sans Mono", Consolas, "Courier New", monospace;
+}
+
 fieldset {
 	border: 0;
 }
@@ -111,7 +115,7 @@ input, select, textarea {
 	border: 1px solid #d0d0d0;
 	border-radius: 1px;
 	color: #000000;
-	font: 90% "OpenSans WebFont";
+	font: 100% "OpenSans WebFont";
 }
 
 input[type="radio"] {
@@ -323,7 +327,12 @@ ul ul {
 
 .hint {
 	color: #606060;
+	font-size: 90%;
 }
+
+	.hint code {
+		line-height: 20px;
+	}
 
 
 /* Button style */
@@ -365,6 +374,8 @@ ul ul {
 .icon-pen:before { content: "\e270e"; }
 .icon-penfill:before { content: "\e005"; }
 .icon-reload:before { content: "\e031"; }
+.icon-tag:before { content: "\e02b"; }
+.icon-x:before { content: "\2717"; }
 .icon-wrench:before { content: "\e078"; }
 
 

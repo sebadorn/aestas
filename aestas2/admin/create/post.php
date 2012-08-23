@@ -8,6 +8,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 ?>
 
 <script src="interface/js/tab.js"></script>
+<script src="interface/js/tags.js"></script>
 
 <form class="main-content-wrapper create" accept-charset="utf-8" action="create/add-post.php" method="post">
 
@@ -72,7 +73,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 		</fieldset>
 	</div>
 
-	<div style="width: 0; height: 0;"></div>
+	<hr />
 
 	<section class="tab-section">
 		<!-- tabs -->
@@ -84,7 +85,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 			<li data-tab-trigger="tracks">Tracks</li>
 			<li data-tab-trigger="protect">Protect</li>
 			<li data-tab-trigger="permalink">Permalink</li>
-			<li data-tab-trigger="other">Other</li>
+			<li data-tab-trigger="more">More</li>
 		</ul>
 
 		<!-- tab panel -->
@@ -96,15 +97,15 @@ ae_Permissions::Check( 'create', 'addpost' );
 
 		<!-- tab panel -->
 		<div data-tab-panel="tags" class="tab-panel tags">
-			<input class="addtags" name="tags" type="text" />
-			<input class="hideifnojs" type="button" value="add to list" />
+			<input id="add-tags" name="tags" type="text" />
+			<ul id="tag-listing"></ul>
 			<p class="hint">Multiple tags can be seperated with semicolons (;).</p>
 		</div>
 
 		<!-- tab panel -->
 		<div data-tab-panel="desc" class="tab-panel desc">
 			<textarea name="desc"></textarea>
-			<p class="hint">Description. Used in in the meta-tag with the same name. Should briefly summarize the content.</p>
+			<p class="hint">Description. Used in in the <code>meta</code> tag with the same name. Should briefly summarize the content.</p>
 		</div>
 
 		<!-- tab panel -->
@@ -122,8 +123,8 @@ ae_Permissions::Check( 'create', 'addpost' );
 			</ul>
 			<p class="hint">
 				The excerpt can contain for example the first two paragraphs of your content.
-				But as long as you do not intend to use it as preview or in the feed you can as well leave it blank.
-				The excerpt can contain XHTML.
+				But as long as you do not intend to use it as preview or in the feed, you can as well leave it blank.
+				The excerpt can contain HTML.
 			</p>
 		</div>
 
@@ -170,7 +171,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 		<?php endif; ?>
 
 		<!-- tab panel -->
-		<div data-tab-panel="other" class="tab-panel other">
+		<div data-tab-panel="more" class="tab-panel more">
 			<ul>
 				<li>
 					<input name="disable-comm" type="checkbox" value="true" id="disable-comm" />

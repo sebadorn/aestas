@@ -61,9 +61,82 @@
 	}
 
 
-/* Second layer */
+/* Second level */
+
+.create hr {
+	border: 0;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
 
 .create .tab-section {
 	margin-right: 148px;
 	width: 682px;
 }
+
+		.tab-panel .hint {
+			margin-top: 10px;
+		}
+
+	.tab-panel.categories {
+		max-height: 280px;
+		overflow-y: auto;
+	}
+
+		.tab-panel li {
+			margin-bottom: 4px;
+		}
+
+		.tab-panel li:last-child {
+			margin-bottom: 0;
+		}
+
+			.tab-panel li:hover input {
+				border-color: #f68d30;
+			}
+
+			.tab-panel input {
+				margin-right: 4px;
+				vertical-align: middle;
+			}
+
+		.tab-panel input[type="text"],
+		.tab-panel input[type="password"],
+		.tab-panel textarea {
+			width: 620px;
+		}
+
+		.tab-panel textarea {
+			height: 80px;
+		}
+
+		.tab-panel.excerpt textarea {
+			margin-bottom: 10px;
+		}
+
+		.tab-panel.tags ul {
+			margin-top: 10px;
+		}
+
+			.tab-panel.tags li {
+				border-radius: 1px;
+				cursor: default;
+				display: inline-block;
+				margin-right: 12px;
+				padding: 2px 6px;
+			}
+
+			.tab-panel.tags li:hover {
+				background-color: #d8d8d8;
+				color: #000000;
+			}
+
+				.tab-panel.tags li:hover:before {
+					color: #d81616;
+				}
+
+			.tab-panel.tags .icon:before {
+				font-size: 12px;
+				margin-right: 6px;
+			}
