@@ -12,7 +12,7 @@
 	}
 
 		.midth legend {
-			background-color: #b0b0b0;
+			background-color: #d0d0d0;
 			color: #ffffff;
 			padding: 6px 0 6px 12px;
 			position: absolute;
@@ -21,7 +21,7 @@
 		}
 
 		.midth .title:before {
-			border-color: transparent transparent transparent #b0b0b0;
+			border-color: transparent transparent transparent #d0d0d0;
 			border-style: solid;
 			border-width: 16px;
 			content: "";
@@ -70,7 +70,8 @@
 	visibility: hidden;
 }
 
-.create .tab-section {
+.create .tab-section,
+.create .timing {
 	margin-right: 148px;
 	width: 682px;
 }
@@ -140,3 +141,8 @@
 				font-size: 12px;
 				margin-right: 6px;
 			}
+
+
+.create .timing {
+	
+}

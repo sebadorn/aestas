@@ -379,44 +379,70 @@ ul ul {
 .icon-wrench:before { content: "\e078"; }
 
 
-/* Tabs sections */
+/* Tabs section and date/time setting for post/page */
 
-.tab-section {
+.tab-section,
+.timing {
 	display: inline-block;
 	margin-top: 32px;
 }
 
-	.tab-trigger {
-		margin-bottom: 0px;
-	}
+.timing {
+	margin-top: 16px;
+}
 
-		.tab-trigger li {
+		.tab-trigger label,
+		.timing legend {
 			border-bottom: 3px solid transparent;
 			color: #808080;
 			display: inline-block;
 			font-size: 120%;
-			margin-right: 14px;
-			padding-bottom: 4px;
+			margin: 0 14px 0 0;
+			padding: 0 0 4px 0;
 			text-transform: uppercase;
 		}
 
-		.tab-trigger li:hover {
+		.tab-trigger label:hover {
 			color: #000000;
 			cursor: pointer;
 		}
 
-		.tab-trigger li.active {
-			border-bottom-color: #d0d0d0;
-			color: #000000;
-		}
-
-	.tab-panel {
+	.tab-panel,
+	.timing div {
 		background-color: #f6f6f6;
 		display: none;
 		padding: 20px;
 	}
 
-	.tab-panel.active {
+	.tab-section input[name="tabs"] {
+		display: none;
+	}
+
+	input[name="tabs"]:nth-of-type(1):checked ~ .tab-trigger label:nth-of-type(1),
+	input[name="tabs"]:nth-of-type(2):checked ~ .tab-trigger label:nth-of-type(2),
+	input[name="tabs"]:nth-of-type(3):checked ~ .tab-trigger label:nth-of-type(3),
+	input[name="tabs"]:nth-of-type(4):checked ~ .tab-trigger label:nth-of-type(4),
+	input[name="tabs"]:nth-of-type(5):checked ~ .tab-trigger label:nth-of-type(5),
+	input[name="tabs"]:nth-of-type(6):checked ~ .tab-trigger label:nth-of-type(6),
+	input[name="tabs"]:nth-of-type(7):checked ~ .tab-trigger label:nth-of-type(7),
+	input[name="tabs"]:nth-of-type(8):checked ~ .tab-trigger label:nth-of-type(8),
+	.timing legend {
+		border-bottom-color: #d0d0d0;
+		color: #000000;
+	}
+
+	input[name="tabs"]:nth-of-type(1):checked ~ .tab-panel:nth-of-type(1),
+	input[name="tabs"]:nth-of-type(2):checked ~ .tab-panel:nth-of-type(2),
+	input[name="tabs"]:nth-of-type(3):checked ~ .tab-panel:nth-of-type(3),
+	input[name="tabs"]:nth-of-type(4):checked ~ .tab-panel:nth-of-type(4),
+	input[name="tabs"]:nth-of-type(5):checked ~ .tab-panel:nth-of-type(5),
+	input[name="tabs"]:nth-of-type(6):checked ~ .tab-panel:nth-of-type(6),
+	input[name="tabs"]:nth-of-type(7):checked ~ .tab-panel:nth-of-type(7),
+	input[name="tabs"]:nth-of-type(8):checked ~ .tab-panel:nth-of-type(8) {
+		display: block;
+	}
+
+	.timing fieldset div:first-of-type {
 		display: block;
 	}
 

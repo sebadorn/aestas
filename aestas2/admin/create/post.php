@@ -7,7 +7,6 @@ if( !defined( 'ROLE') ) {
 ae_Permissions::Check( 'create', 'addpost' );
 ?>
 
-<script src="interface/js/tab.js"></script>
 <script src="interface/js/tags.js"></script>
 
 <form class="main-content-wrapper create" accept-charset="utf-8" action="create/add-post.php" method="post">
@@ -33,83 +32,53 @@ ae_Permissions::Check( 'create', 'addpost' );
 		<button class="button icon icon-penfill" type="submit" name="publish">publish</button>
 	</aside>
 
-	<div class="timing" style="display: none;">
-		<fieldset id="date">
-			<legend>Date</legend>
-			<div class="when">
-				<ul>
-					<li>
-						<input type="radio" name="date" value="imm" id="imm" checked="checked" />
-						<label for="imm">publish immediately</label>
-					</li>
-					<li>
-						<input type="radio" name="date" value="set" id="sched" />
-						<label for="sched">schedule</label>
-					</li>
-				</ul>
-			</div>
-			<div class="manually hideonload">
-				<select name="month">
-					<?php echo ae_Misc::MonthsForSelect() ?>
-				</select>
-				<input name="day" type="text" value="<?php echo date('d') ?>" />,
-				<input name="year" class="year" type="text" value="<?php echo date('Y') ?>" /> at
-				<input name="hour" type="text" value="<?php echo date('H') ?>" /> :
-				<input name="minute" type="text" value="<?php echo date('i') ?>" />
-			</div>
-			<div class="expires">
-				<input id="expires" name="expires" type="checkbox" value="true" />
-				<label for="expires">Expires</label>
-			</div>
-			<div class="expires_set hideonload">
-				<select name="expires_month">
-					<?php echo ae_Misc::MonthsForSelect() ?>
-				</select>
-				<input name="expires_day" type="text" value="<?php echo date('d') ?>" />,
-				<input name="expires_year" class="year" type="text" value="<?php echo date('Y') ?>" /> at
-				<input name="expires_hour" type="text" value="<?php echo date('H') ?>" /> :
-				<input name="expires_minute" type="text" value="<?php echo date('i') ?>" />
-			</div>
-		</fieldset>
-	</div>
-
 	<hr />
 
 	<section class="tab-section">
+		<!-- tabs (hidden part for CSS trickery) -->
+		<input id="tab-categories" name="tabs" type="radio" checked="checked" />
+		<input id="tab-tags" name="tabs" type="radio" />
+		<input id="tab-desc" name="tabs" type="radio" />
+		<input id="tab-excerpt" name="tabs" type="radio" />
+		<input id="tab-tracks" name="tabs" type="radio" />
+		<input id="tab-protect" name="tabs" type="radio" />
+		<input id="tab-permalink" name="tabs" type="radio" />
+		<input id="tab-more" name="tabs" type="radio" />
+
 		<!-- tabs -->
-		<ul class="tab-trigger">
-			<li data-tab-trigger="categories" class="active">Categories</li>
-			<li data-tab-trigger="tags">Tags</li>
-			<li data-tab-trigger="desc">Desc</li>
-			<li data-tab-trigger="excerpt">Excerpt</li>
-			<li data-tab-trigger="tracks">Tracks</li>
-			<li data-tab-trigger="protect">Protect</li>
-			<li data-tab-trigger="permalink">Permalink</li>
-			<li data-tab-trigger="more">More</li>
-		</ul>
+		<nav class="tab-trigger">
+			<label for="tab-categories">Categories</label>
+			<label for="tab-tags">Tags</label>
+			<label for="tab-desc">Desc</label>
+			<label for="tab-excerpt">Excerpt</label>
+			<label for="tab-tracks">Tracks</label>
+			<label for="tab-protect">Protect</label>
+			<label for="tab-permalink">Permalink</label>
+			<label for="tab-more">More</label>
+		</nav>
 
 		<!-- tab panel -->
-		<div data-tab-panel="categories" class="tab-panel categories active">
+		<div class="tab-panel categories">
 			<ul>
 				<?php echo ae_Misc::ListCategories( 'checkbox' ) ?>
 			</ul>
 		</div>
 
 		<!-- tab panel -->
-		<div data-tab-panel="tags" class="tab-panel tags">
+		<div class="tab-panel tags">
 			<input id="add-tags" name="tags" type="text" />
 			<ul id="tag-listing"></ul>
 			<p class="hint">Multiple tags can be seperated with semicolons (;).</p>
 		</div>
 
 		<!-- tab panel -->
-		<div data-tab-panel="desc" class="tab-panel desc">
+		<div class="tab-panel desc">
 			<textarea name="desc"></textarea>
 			<p class="hint">Description. Used in in the <code>meta</code> tag with the same name. Should briefly summarize the content.</p>
 		</div>
 
 		<!-- tab panel -->
-		<div data-tab-panel="excerpt" class="tab-panel excerpt">
+		<div class="tab-panel excerpt">
 			<textarea name="excerpt" cols="40" rows="5"></textarea>
 			<ul>
 				<li>
@@ -129,7 +98,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 		</div>
 
 		<!-- tab panel -->
-		<div data-tab-panel="tracks" class="tab-panel tracks">
+		<div class="tab-panel tracks">
 			<input name="tracks" type="text" />
 			<input class="hideifnojs" type="button" value="add to list" />
 			<p class="hint">
@@ -140,7 +109,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 		</div>
 
 		<!-- tab panel -->
-		<div data-tab-panel="protect" class="tab-panel protect">
+		<div class="tab-panel protect">
 			<input name="protect" type="password" />
 			<input class="hideifnojs" type="text" />
 			<input class="hideifnojs" type="button" value="security check" />
@@ -150,12 +119,12 @@ ae_Permissions::Check( 'create', 'addpost' );
 					<label for="cleartext">show as cleartext</label>
 				</li>
 			</ul>
-			<p class="hint">Just type your password in here.</p>
+			<p class="hint">A password to protect the post.</p>
 		</div>
 
 		<!-- tab panel -->
 		<?php if( ae_URL::StructureOfPost() != 'default' ) : ?>
-		<div data-tab-panel="permalink" class="tab-panel permalink">
+		<div class="tab-panel permalink">
 			<p class="sug hideifnojs">
 				Suggestion: <?php echo URL . '/' . ae_URL::Post2Permalink( 0, '', date( 'Y' ), date( 'm' ), date( 'd' ) ) ?><span></span>
 			</p>
@@ -171,7 +140,7 @@ ae_Permissions::Check( 'create', 'addpost' );
 		<?php endif; ?>
 
 		<!-- tab panel -->
-		<div data-tab-panel="more" class="tab-panel more">
+		<div class="tab-panel more">
 			<ul>
 				<li>
 					<input name="disable-comm" type="checkbox" value="true" id="disable-comm" />
@@ -179,10 +148,55 @@ ae_Permissions::Check( 'create', 'addpost' );
 				</li>
 				<li>
 					<input name="con-php" type="checkbox" value="true" id="con-php" />
-					<label for="con-php">contains PHP</label>
+					<label for="con-php">evaluate PHP inside post</label>
 				</li>
 			</ul>
 		</div>
+	</section>
+
+
+	<section class="timing">
+		<fieldset>
+			<legend>Date</legend>
+
+			<div class="when">
+				<ul>
+					<li>
+						<input type="radio" name="date" value="imm" id="imm" checked="checked" />
+						<label for="imm">publish immediately</label>
+					</li>
+					<li>
+						<input type="radio" name="date" value="set" id="sched" />
+						<label for="sched">schedule</label>
+					</li>
+				</ul>
+			</div>
+
+			<div class="manually">
+				<select name="month">
+					<?php echo ae_Misc::MonthsForSelect() ?>
+				</select>
+				<input name="day" type="text" value="<?php echo date('d') ?>" />,
+				<input name="year" class="year" type="text" value="<?php echo date('Y') ?>" /> at
+				<input name="hour" type="text" value="<?php echo date('H') ?>" /> :
+				<input name="minute" type="text" value="<?php echo date('i') ?>" />
+			</div>
+
+			<div class="expires">
+				<input id="expires" name="expires" type="checkbox" value="true" />
+				<label for="expires">Expires</label>
+			</div>
+
+			<div class="expires_set">
+				<select name="expires_month">
+					<?php echo ae_Misc::MonthsForSelect() ?>
+				</select>
+				<input name="expires_day" type="text" value="<?php echo date('d') ?>" />,
+				<input name="expires_year" class="year" type="text" value="<?php echo date('Y') ?>" /> at
+				<input name="expires_hour" type="text" value="<?php echo date('H') ?>" /> :
+				<input name="expires_minute" type="text" value="<?php echo date('i') ?>" />
+			</div>
+		</fieldset>
 	</section>
 
 </form>

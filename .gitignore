@@ -1,2 +1,6 @@
+# Directories inside the project
 aestas2/themes/*
 aestas2/media/*
+
+# Sublime Text 2
+*.sublime-*
